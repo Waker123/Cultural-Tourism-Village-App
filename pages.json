@@ -1,0 +1,41 @@
+{
+	"easycom": {
+			"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+		},
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/mask/mask"
+		},
+		{
+			"path": "pages/index/index"//"pages/index/index",
+		},
+		{
+			"path": "pages/myBlog/myBlog"
+		}
+	],
+	"tabBar": {
+		"color": "B0E2FF",
+		"selectedColor":"9F79EE",
+		"fontSize":"14px",
+		"list": [
+			{
+				"pagePath":"pages/index/index",
+				"text":"首页",
+				"iconPath": "static/image/indexIcon1.png",
+				"selectedIconPath": "static/image/indexIcon2.png"
+			},
+			{
+				"pagePath": "pages/myBlog/myBlog",
+				"text": "Blog",
+				"iconPath": "static/image/myBlogIcon1.png",
+				"selectedIconPath": "static/image/myBlogIcon2.png"
+				
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#F8F8F8"
+	}
+}
