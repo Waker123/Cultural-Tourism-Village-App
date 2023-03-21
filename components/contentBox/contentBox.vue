@@ -2,7 +2,7 @@
 	<view class="contentMain">
 		<ul>
 			<li class='box' v-for="(item,index) in boxNumber" :key="index">
-				<a class="hrefBox">
+				<a class="hrefBox" @click="aaa">
 					<img class="icon" src="../../static/image/fengjing2.png">
 					<span class='boxTitle'>{{index+1}}</span>
 				</a>
@@ -19,6 +19,11 @@
 				boxNumber:15
 			}
 		},
+		methods:{
+			aaa(){
+				window.alert('111');
+			}
+		}
 		
 	}
 </script>

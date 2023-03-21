@@ -1,6 +1,6 @@
 <template>
 	<view class="mainBody">
-		<background-one class='backgroundOne'></background-one>
+		<background class='background'></background>
 		<!-- <background-two class='backgroundTwo'></background-two> -->
 		<!-- <background-three class='backgroundThree'></background-three> -->
 		<!-- <todo-list class='todoList'></todo-list> -->
@@ -8,29 +8,32 @@
 		<!-- <daily-task class = 'dailyTask'></daily-task> -->
 		<!-- <time-line class='timeLine'></time-line> -->
 		<content-box class='contentMain'></content-box>
+		<scenic-spot class='scenicSpot'></scenic-spot>
 	</view>
 </template>
 
 <script>
-	import backgroundOne from '../../components/background/backgroundOne.vue'
-	import backgroundTwo from '../../components/background/backgroundTwo.vue'
-	import backgroundThree from '../../components/background/backgroundThree.vue'
-	import todoList from '../../components/todo/todoList.vue'
-	import weekTodo from '../../components/weektodo/weekTodo.vue'
-	import dailyTask from '../../components/dailyTask/dailyTask.vue'
-	import timeLine from '../../components/timeLine/timeLine.vue'
+	import background from '../../components/background/background.vue'
+	// import backgroundTwo from '../../components/background/backgroundTwo.vue'
+	// import backgroundThree from '../../components/background/backgroundThree.vue'
+	// import todoList from '../../components/todo/todoList.vue'
+	// import weekTodo from '../../components/weektodo/weekTodo.vue'
+	// import dailyTask from '../../components/dailyTask/dailyTask.vue'
+	// import timeLine from '../../components/timeLine/timeLine.vue'
 	import contentBox from '../../components/contentBox/contentBox.vue'
+	import scenicSpot from '../../components/scenicSpot/scenicSpot.vue'
 	export default {
 		name:'index',
 		components:{
-			backgroundOne,
-			backgroundTwo,
-			backgroundThree,
-			todoList,
-			weekTodo,
-			dailyTask,
-			timeLine,
-			contentBox
+			background,
+			// backgroundTwo,
+			// backgroundThree,
+			// todoList,
+			// weekTodo,
+			// dailyTask,
+			// timeLine,
+			contentBox,
+			scenicSpot
 		}
 	}
 </script>
@@ -41,11 +44,11 @@
 		width: 750rpx;
 		// height: 4864rpx;
 		height: 1200rpx;
-		.backgroundOne,.backgroundTwo,.backgroundThree{
+		.background{
 			position: absolute;
 			z-index: -99;
 		}
-		.backgroundOne{
+		.background{
 			top: 0;
 		}
 		.backgroundTwo{
@@ -54,13 +57,17 @@
 		.backgroundThree{
 			top: 3242rpx;
 		}
-		.contentMain{
+		.contentMain,.scenicSpot{
 			position: absolute;
 			left: 50%;
 			transform: translateX(-50%);
 		}
 		.contentMain{
-			top: 10%;
+			z-index: 1;
+			top: 15%;
+		}
+		.scenicSpot{
+			top: 3%;
 		}
 		
 	}

@@ -14,21 +14,21 @@
 		}
 	],
 	"tabBar": {
-		"color": "B0E2FF",
-		"selectedColor":"9F79EE",
+		"color": "9F79EE",
+		"selectedColor":"B0E2FF",
 		"fontSize":"14px",
 		"list": [
 			{
 				"pagePath":"pages/index/index",
 				"text":"首页",
-				"iconPath": "static/image/indexIcon1.png",
-				"selectedIconPath": "static/image/indexIcon2.png"
+				"iconPath": "static/image/首页1.png",
+				"selectedIconPath": "static/image/首页2.png"
 			},
 			{
 				"pagePath": "pages/myBlog/myBlog",
 				"text": "我的",
-				"iconPath": "static/image/myBlogIcon1.png",
-				"selectedIconPath": "static/image/myBlogIcon2.png"
+				"iconPath": "static/image/我的1.png",
+				"selectedIconPath": "static/image/我的2.png"
 				
 			}
 		]
