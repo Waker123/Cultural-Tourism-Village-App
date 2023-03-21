@@ -1,12 +1,13 @@
 <template>
 	<view class="mainBody">
 		<background-one class='backgroundOne'></background-one>
-		<background-two class='backgroundTwo'></background-two>
-		<background-three class='backgroundThree'></background-three>
-		<todo-list class='todoList'></todo-list>
-		<week-todo class= 'weekTodo'></week-todo>
-		<daily-task class = 'dailyTask'></daily-task>
-		<time-line class='timeLine'></time-line>
+		<!-- <background-two class='backgroundTwo'></background-two> -->
+		<!-- <background-three class='backgroundThree'></background-three> -->
+		<!-- <todo-list class='todoList'></todo-list> -->
+		<!-- <week-todo class= 'weekTodo'></week-todo> -->
+		<!-- <daily-task class = 'dailyTask'></daily-task> -->
+		<!-- <time-line class='timeLine'></time-line> -->
+		<content-box class='contentMain'></content-box>
 	</view>
 </template>
 
@@ -18,6 +19,7 @@
 	import weekTodo from '../../components/weektodo/weekTodo.vue'
 	import dailyTask from '../../components/dailyTask/dailyTask.vue'
 	import timeLine from '../../components/timeLine/timeLine.vue'
+	import contentBox from '../../components/contentBox/contentBox.vue'
 	export default {
 		name:'index',
 		components:{
@@ -28,6 +30,7 @@
 			weekTodo,
 			dailyTask,
 			timeLine,
+			contentBox
 		}
 	}
 </script>
@@ -36,7 +39,8 @@
 	.mainBody{
 		position: relative;
 		width: 750rpx;
-		height: 4864rpx;
+		// height: 4864rpx;
+		height: 1200rpx;
 		.backgroundOne,.backgroundTwo,.backgroundThree{
 			position: absolute;
 			z-index: -99;
@@ -50,19 +54,13 @@
 		.backgroundThree{
 			top: 3242rpx;
 		}
-		.todoList,.weekTodo,.dailyTask{
+		.contentMain{
 			position: absolute;
 			left: 50%;
 			transform: translateX(-50%);
 		}
-		.todoList{
-			top: 200rpx;
-		}
-		.weekTodo{
-			top: 2100rpx;
-		}
-		.dailyTask{
-			top: 3536rpx;
+		.contentMain{
+			top: 10%;
 		}
 		
 	}

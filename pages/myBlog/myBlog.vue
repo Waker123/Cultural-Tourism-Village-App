@@ -1,12 +1,12 @@
 <template>
-	<view class="mainBlog">
-		<u-transition :show="backgroundShow" mode="fade" duration='500'>
+	<view class="main">
+<!-- 		<u-transition :show="backgroundShow" mode="fade" duration='500'>
 			<background-four class='transition bg'></background-four>
 		</u-transition>
 		<u-transition :show="!backgroundShow" mode="fade" duration='500'>
 		    <background-five class='transition bg'></background-five>
 		</u-transition>
-		<blog-record class='blogRecord'></blog-record>
+		<blog-record class='blogRecord'></blog-record> -->
 	</view>
 </template>
 
@@ -34,7 +34,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-	.mainBlog{
+	.main{
 		position: relative;
 		width: 750rpx;
 		height: 1626rpx;

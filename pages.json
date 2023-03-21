@@ -26,7 +26,7 @@
 			},
 			{
 				"pagePath": "pages/myBlog/myBlog",
-				"text": "Blog",
+				"text": "我的",
 				"iconPath": "static/image/myBlogIcon1.png",
 				"selectedIconPath": "static/image/myBlogIcon2.png"
 				

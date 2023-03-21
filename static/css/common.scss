@@ -36,6 +36,10 @@ body{
 	line-height: 0;
 	clear: both;
 }
+ul{
+	list-style: none;
+}
+
 @-webkit-keyframes rotation{
 	from {-webkit-transform: rotate(0deg);}
 	to {-webkit-transform: rotate(360deg);}
