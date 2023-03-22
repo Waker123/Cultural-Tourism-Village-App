@@ -4,6 +4,9 @@
 		},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path":"pages/login/login"
+		},
+		{
 			"path": "pages/mask/mask"
 		},
 		{
@@ -11,6 +14,9 @@
 		},
 		{
 			"path": "pages/myBlog/myBlog"
+		},
+		{
+			"path": "pages/user/user"
 		}
 	],
 	"tabBar": {
@@ -25,7 +31,7 @@
 				"selectedIconPath": "static/image/首页2.png"
 			},
 			{
-				"pagePath": "pages/myBlog/myBlog",
+				"pagePath": "pages/user/user",
 				"text": "我的",
 				"iconPath": "static/image/我的1.png",
 				"selectedIconPath": "static/image/我的2.png"

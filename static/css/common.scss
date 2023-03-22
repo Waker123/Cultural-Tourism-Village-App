@@ -39,7 +39,10 @@ body{
 ul{
 	list-style: none;
 }
-
+input{
+	outline: none;//去除input框聚焦时的蓝色边框	
+	outline-width:0 去除聚焦时的蓝色边框
+}
 @-webkit-keyframes rotation{
 	from {-webkit-transform: rotate(0deg);}
 	to {-webkit-transform: rotate(360deg);}

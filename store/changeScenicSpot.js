@@ -3,11 +3,15 @@ export default {
 	mutations:{
 		changeScenicSpot(state,value){
 			state.currentScenicSpot = value;
+		},
+		changeScenicSpotShow(state,value){
+			state.scenicSpotShow = value;
 		}
 	},
 	state:{
 		scenicSpot:spot(),
-		currentScenicSpot:spot()[0]
+		currentScenicSpot:spot()[0],
+		scenicSpotShow:false
 	}
 }
 

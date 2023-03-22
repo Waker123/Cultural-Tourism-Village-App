@@ -9,19 +9,21 @@
 		<!-- <time-line class='timeLine'></time-line> -->
 		<content-box class='contentMain'></content-box>
 		<scenic-spot class='scenicSpot'></scenic-spot>
+		<choose-spot class='chooseSpot'></choose-spot>
 	</view>
 </template>
 
 <script>
-	import background from '../../components/background/background.vue'
+	import background from '../../components/background/background.vue' //背景组件
 	// import backgroundTwo from '../../components/background/backgroundTwo.vue'
 	// import backgroundThree from '../../components/background/backgroundThree.vue'
 	// import todoList from '../../components/todo/todoList.vue'
 	// import weekTodo from '../../components/weektodo/weekTodo.vue'
 	// import dailyTask from '../../components/dailyTask/dailyTask.vue'
 	// import timeLine from '../../components/timeLine/timeLine.vue'
-	import contentBox from '../../components/contentBox/contentBox.vue'
-	import scenicSpot from '../../components/scenicSpot/scenicSpot.vue'
+	import contentBox from '../../components/contentBox/contentBox.vue' //显示主要功能选项的组件
+	import scenicSpot from '../../components/scenicSpot/scenicSpot.vue' //显示选择景点的组件
+	import chooseSpot from '../../components/scenicSpot/chooseSpot.vue' //显示选择背景的组件
 	export default {
 		name:'index',
 		components:{
@@ -33,7 +35,8 @@
 			// dailyTask,
 			// timeLine,
 			contentBox,
-			scenicSpot
+			scenicSpot,
+			chooseSpot
 		}
 	}
 </script>
@@ -63,7 +66,7 @@
 			transform: translateX(-50%);
 		}
 		.contentMain{
-			z-index: 1;
+			// z-index: 1;
 			top: 15%;
 		}
 		.scenicSpot{

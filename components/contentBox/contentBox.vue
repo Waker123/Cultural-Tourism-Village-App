@@ -32,8 +32,8 @@
 	.contentMain{
 		width: 700rpx;
 		height: 500rpx;
-		background-color: rgba(255, 255, 255, .6);
-		border: 4rpx solid rgba(255, 255, 255, .5);
+		background-color: rgba(255, 255, 255, .8);
+		border: 4rpx solid rgba(255, 255, 255, .8);
 		border-radius: 50rpx;
 		padding: 10rpx;
 		text-align: center;

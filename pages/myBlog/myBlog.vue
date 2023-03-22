@@ -11,15 +11,15 @@
 </template>
 
 <script>
-import backgroundFour from '../../components/background/backgroundFour.vue'
-import backgroundFive from '../../components/background/backgroundFive.vue'
+// import backgroundFour from '../../components/background/backgroundFour.vue'
+// import backgroundFive from '../../components/background/backgroundFive.vue'
 import blogRecord from '../../components/blogRecord/blogRecord.vue'
 import {mapState} from 'vuex'
 export default {
 	name:'myBlog',
 	components:{
-		backgroundFour,
-		backgroundFive,
+		// backgroundFour,
+		// backgroundFive,
 		blogRecord,
 	},
 	computed:{
