@@ -1,15 +1,15 @@
 <template>
 	<view class="mainBackground">
-		<u-transition :show="currentScenicSpot==='111'" mode="fade">
+		<u-transition :show="currentScenicSpot===scenicSpot[0]" mode="fade">
 			<view class="transition background backgroundOne"></view>
 		</u-transition>
-		<u-transition :show="currentScenicSpot==='222'" mode="fade">
+		<u-transition :show="currentScenicSpot===scenicSpot[1]" mode="fade">
 			<view class="transition background backgroundTwo"></view>
 		</u-transition>
-		<u-transition :show="currentScenicSpot==='333'" mode="fade">
+		<u-transition :show="currentScenicSpot===scenicSpot[2]" mode="fade">
 			<view class="transition background backgroundThree"></view>
 		</u-transition>
-		<u-transition :show="currentScenicSpot==='444'" mode="fade">
+		<u-transition :show="currentScenicSpot===''" mode="fade">
 			<view class="transition background backgroundFour"></view>
 		</u-transition>
 	</view>
@@ -17,15 +17,32 @@
 
 <script>
 	import {mapState} from "vuex";
+	import {getScenicSpotName} from '../../api/scenicSpotApi.js'
 	export default {
 		name:'background',
 		data(){
 			return{
-				
+				scenicSpot:[],
 			}
 		},
 		computed:{
 			...mapState('changeScenicSpot',["currentScenicSpot"])
+		},
+		methods:{
+			getScenicName(){
+					uni.showLoading({
+						title:"加载中",
+					});
+					 getScenicSpotName().then((res) => {
+					  this.scenicSpot = res.data
+					  uni.hideLoading(); // 关闭加载中弹框
+					}).catch((err) => {
+					  console.log(err); 
+					});
+				}
+		},
+		created() {
+			this.getScenicName();
 		}
 	}
 </script>

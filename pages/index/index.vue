@@ -54,12 +54,7 @@
 		.background{
 			top: 0;
 		}
-		.backgroundTwo{
-			top:1620rpx;
-		}
-		.backgroundThree{
-			top: 3242rpx;
-		}
+
 		.contentMain,.scenicSpot{
 			position: absolute;
 			left: 50%;

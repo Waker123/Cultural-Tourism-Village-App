@@ -1,5 +1,5 @@
 {
-    "name" : "myUniApp",
+    "name" : "bishe",
     "appid" : "__UNI__9A7DC18",
     "description" : "",
     "versionName" : "1.0.0",
@@ -52,20 +52,20 @@
             "urlCheck" : true
         }
     },
-	    "h5": {
-	    	"devServer": {
-	    		"port": 8081,	//浏览器运行端口
-	    		"disableHostCheck": true,
-	    		"proxy": {
-	    			"/api": {
-	    				"target": "http://localhost:5000",		//实际请求服务器地址
-	    				"changeOrigin": true,
-	    				"secure": true,
-	    				"pathRewrite": {
-	    					"^/api": ""
-	    				}
-	    			}
-	    		}
-	    	}
-		}
+    "h5" : {
+        "devServer" : {
+            "port" : 8081, //浏览器运行端口
+            "disableHostCheck" : true,
+            "proxy" : {
+                "/api" : {
+                    "target" : "http://localhost:7000", //实际请求服务器地址
+                    "changeOrigin" : true,
+                    "secure" : true,
+                    "pathRewrite" : {
+                        "^/api" : ""
+                    }
+                }
+            }
+        }
+    }
 }

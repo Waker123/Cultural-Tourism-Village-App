@@ -10,21 +10,29 @@
 			  <input
 			   type='text'
 			    placeholder="请输入ID"
-			    v-model="userId"
+			    v-model="registerId"
 			  ></input>
 			</view>
 			<p class='remindBoxOne'>请输入8-16位的数字、字母组合</p>
-			<view class="userPassword">
+			<view class="userPasswordOne">
 			<span>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</span>
 			  <input
 			   type='password'
 			    placeholder="请输入密码"
-			    v-model="userPassword"
+			    v-model="registerPassword"
 			  ></input>
 			</view>
 			<p class='remindBoxTwo'>请输入8-16位的数字、字母组合</p>
+			<view class="userPasswordTwo">
+			<span>确认密码：</span>
+			  <input
+			   type='password'
+			    placeholder="请再次输入密码"
+			    v-model="registerPasswordAgain"
+			  ></input>
+			</view>
+			<p class='remindBoxThree'>两次输入的密码不同</p>
 			<view class="loginBox">
-				<button size="mini" class="login">登录</button>
 				<button size="mini" class="register">注册</button>
 			</view>
 		</view>
@@ -33,11 +41,12 @@
 
 <script>
 	export default {
-		name:"login",
+		name:"register",
 		data(){
 			return{
-				userId: '',
-				userPassword:''
+				registerId: '',
+				registerPassword:'',
+				registerPasswordAgain:''
 			}
 		},
 		methods:{
@@ -63,7 +72,7 @@
 		.loginCard{
 			position: relative;
 			width: 700rpx;
-			height: 600rpx;
+			height: 800rpx;
 			margin: auto;
 			background-color: rgba(255, 255, 255, .8);
 			border-radius: 50rpx;
@@ -83,7 +92,7 @@
 			.userId{
 				position: absolute;
 				width: 600rpx;
-				top: 25%;
+				top: 15%;
 				left: 50%;
 				transform: translateX(-50%);
 				display: flex;
@@ -101,10 +110,10 @@
 					font-family: 'none';
 				}
 			}
-			.userPassword{
+			.userPasswordOne{
 				position: absolute;
 				width: 600rpx;
-				top: 50%;
+				top: 35%;
 				left: 50%;
 				transform: translateX(-50%);
 				display: flex;
@@ -112,6 +121,27 @@
 				span{
 					width: 250rpx;
 					font-size: 45rpx;
+					font-weight: 700;
+				}
+				input{
+					width: 500rpx;
+					border: 5rpx solid rgba(0, 0, 0, .8);
+					border-radius: 10rpx;
+					padding: 0 10rpx 0 10rpx;
+					font-family: 'none';
+				}
+			}
+			.userPasswordTwo{
+				position: absolute;
+				width: 600rpx;
+				top: 55%;
+				left: 50%;
+				transform: translateX(-50%);
+				display: flex;
+				justify-content: center;
+				span{
+					width: 250rpx;
+					font-size: 36rpx;
 					font-weight: 700;
 				}
 				input{
@@ -128,7 +158,7 @@
 				top: 75%;
 				left: 50%;
 				transform: translateX(-50%);
-				.login,.register{
+				.register{
 					width: 200rpx;
 					height: 100rpx;
 					text-align: center;
@@ -139,20 +169,20 @@
 					font-size: 40rpx;
 					background-color: rgba(255, 255, 255, .4);
 				}
-				.login{
-					margin-right: 30rpx;
-				}
 			}
-			.remindBoxOne,.remindBoxTwo{
+			.remindBoxOne,.remindBoxTwo,.remindBoxThree{
 				position: absolute;
 				left: 35%;
-				color: red;	
+				color: red;
 			}
 			.remindBoxOne{
-				top: 35%;
+				top: 23%;
 			}
 			.remindBoxTwo{
-				top: 60%;
+				top: 43%;
+			}
+			.remindBoxThree{
+				top: 63%;
 			}
 		}
 	}

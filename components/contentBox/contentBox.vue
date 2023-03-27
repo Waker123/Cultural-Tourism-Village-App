@@ -1,12 +1,82 @@
 <template>
 	<view class="contentMain">
 		<ul>
-			<li class='box' v-for="(item,index) in boxNumber" :key="index">
-				<a class="hrefBox" @click="aaa">
+			<li class='box'>
+				<!--
+				 @tap="$u.throttle(scenicSpotIntroduce, 500)" ：使用了uview的节流组件
+				https://www.uviewui.com/js/debounce.html
+				 -->
+				<a class="hrefBox" @tap="$u.throttle(scenicSpotIntroduce, 500)">
 					<img class="icon" src="../../static/image/fengjing2.png">
-					<span class='boxTitle'>{{index+1}}</span>
+					<span class='boxTitle'>景点介绍</span>
 				</a>
 			</li>
+<!-- 			<li class='box'>
+				<a class="hrefBox" @click="aaa">
+					<img class="icon" src="../../static/image/fengjing2.png">
+					<span class='boxTitle'>景点介绍</span>
+				</a>
+			</li>
+			<li class='box'>
+				<a class="hrefBox" @click="aaa">
+					<img class="icon" src="../../static/image/fengjing2.png">
+					<span class='boxTitle'>景点介绍</span>
+				</a>
+			</li>
+			<li class='box'>
+				<a class="hrefBox" @click="aaa">
+					<img class="icon" src="../../static/image/fengjing2.png">
+					<span class='boxTitle'>景点介绍</span>
+				</a>
+			</li>
+			<li class='box'>
+				<a class="hrefBox" @click="aaa">
+					<img class="icon" src="../../static/image/fengjing2.png">
+					<span class='boxTitle'>景点介绍</span>
+				</a>
+			</li>
+			<li class='box'>
+				<a class="hrefBox" @click="aaa">
+					<img class="icon" src="../../static/image/fengjing2.png">
+					<span class='boxTitle'>景点介绍</span>
+				</a>
+			</li>
+			<li class='box'>
+				<a class="hrefBox" @click="aaa">
+					<img class="icon" src="../../static/image/fengjing2.png">
+					<span class='boxTitle'>景点介绍</span>
+				</a>
+			</li>
+			<li class='box'>
+				<a class="hrefBox" @click="aaa">
+					<img class="icon" src="../../static/image/fengjing2.png">
+					<span class='boxTitle'>景点介绍</span>
+				</a>
+			</li>
+			<li class='box'>
+				<a class="hrefBox" @click="aaa">
+					<img class="icon" src="../../static/image/fengjing2.png">
+					<span class='boxTitle'>景点介绍</span>
+				</a>
+			</li>
+			<li class='box'>
+				<a class="hrefBox" @click="aaa">
+					<img class="icon" src="../../static/image/fengjing2.png">
+					<span class='boxTitle'>景点介绍</span>
+				</a>
+			</li>
+			<li class='box'>
+				<a class="hrefBox" @click="aaa">
+					<img class="icon" src="../../static/image/fengjing2.png">
+					<span class='boxTitle'>景点介绍</span>
+				</a>
+			</li>
+			<li class='box'>
+				<a class="hrefBox" @click="aaa">
+					<img class="icon" src="../../static/image/fengjing2.png">
+					<span class='boxTitle'>景点介绍</span>
+				</a>
+			</li> -->
 		</ul>
 	</view>
 </template>
@@ -16,11 +86,10 @@
 		name:'contentBox',
 		data(){
 			return{
-				boxNumber:15
 			}
 		},
 		methods:{
-			aaa(){
+			scenicSpotIntroduce(){
 				window.alert('111');
 			}
 		}
