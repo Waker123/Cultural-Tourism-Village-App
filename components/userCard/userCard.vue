@@ -2,10 +2,10 @@
 <template>
 	<view class="mainUserCard">
 		<!-- uview头像组件 -->
-		<view class="userHead">
+		<view class="userHead" @click="gotoLogin">
 			<u-avatar  size="60" ></u-avatar>	
 		</view>
-		<p class='userName'>用户名称</p>
+		<p class='userName' @click="gotoLogin">点击登录</p>
 		<!-- uview单元格组件 -->
 		<view class="userCell">
 		<u-cell-group  :customStyle="{
@@ -34,7 +34,14 @@
 		data(){
 			return{
 			}
-		}
+		},
+		methods: {
+			gotoLogin(){
+				uni.navigateTo({
+					url:'/pages/login/login'
+				})
+			}
+		},
 	}
 </script>
 

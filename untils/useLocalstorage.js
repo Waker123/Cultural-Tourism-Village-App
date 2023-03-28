@@ -35,3 +35,21 @@ export default function useLocalStorage() {
     }
 }
 
+// 专门用来存取用户名的 可以动态增加的localStorage来存储用户信息
+export function loginLocalStorage() {
+    function setItem(key, loginKey, loginValue) {
+        let value = getItem(key);//先获取以前的值
+        if (value === null) value = {};//防止之前localStorage中没有值报错
+        value[loginKey] = loginValue;//属性为加密后的用户名，属性值为加密后的密码和isLoading组成的数组
+        value = stringify(value);
+         uni.setStorageSync(key, value);
+    }
+    function getItem(key) {
+        let value = parse(uni.getStorageSync(key))
+        return value
+    }
+    return {
+        setItem,
+        getItem
+    }
+}

@@ -1,7 +1,7 @@
 <template>
 	<view class="mainLogin">
 		<view class="loginCard">
-			<view class="gotoIndex" @click="gotoIndex">
+			<view class="gotoIndex" @tap="$u.throttle(gotoIndex, 500)">
 				<span>返回首页</span>
 				<img src="../../static/image/首页1.png" alt="前往首页"></img>
 			</view>
@@ -13,7 +13,7 @@
 			    v-model="userId"
 			  ></input>
 			</view>
-			<p class='remindBoxOne'>请输入8-16位的数字、字母组合</p>
+			<p class='remindBoxOne' v-show="!inputRuleJudge(userId)">请输入8-16位的数字、字母组合</p>
 			<view class="userPassword">
 			<span>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</span>
 			  <input
@@ -22,16 +22,18 @@
 			    v-model="userPassword"
 			  ></input>
 			</view>
-			<p class='remindBoxTwo'>请输入8-16位的数字、字母组合</p>
+			<p class='remindBoxTwo' v-show="!inputRuleJudge(userPassword)">请输入8-16位的数字、字母组合</p>
 			<view class="loginBox">
-				<button size="mini" class="login">登录</button>
-				<button size="mini" class="register">注册</button>
+				<button size="mini" class="login" :disabled="!inputRuleJudge(userId)||!inputRuleJudge(userPassword)">登录</button>
+				<!-- @tap uview的节流 -->
+				<button size="mini" class="register"  @tap="$u.throttle(gotoRegister, 500)">注册</button>
 			</view>
 		</view>
 	</view>
 </template>
 
 <script>
+	import {inputRule} from '../../untils/inputRules.js'
 	export default {
 		name:"login",
 		data(){
@@ -45,6 +47,14 @@
 				uni.switchTab({
 					url: '../index/index'
 				});
+			},
+			gotoRegister(){
+				uni.navigateTo({
+					url:"./register"
+				})
+			},
+			inputRuleJudge(str){
+				return inputRule(str);
 			}
 		},
 		onLoad() {

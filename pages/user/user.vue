@@ -13,7 +13,7 @@
 		components:{
 			userCard,
 			userContent
-		}
+		},
 	}
 </script>
 

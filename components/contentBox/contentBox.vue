@@ -90,7 +90,9 @@
 		},
 		methods:{
 			scenicSpotIntroduce(){
-				window.alert('111');
+				uni.navigateTo({
+					url: '../../pages/main/introduce/introduce'
+				})
 			}
 		}
 		
@@ -114,6 +116,7 @@
 				// border: 2rpx solid grey;
 				box-shadow: 3rpx 3rpx 3rpx 3rpx rgba(0, 0, 0, .2);
 				border-radius: 15rpx;
+				padding: 20rpx;
 				.hrefBox{
 					display: flex;
 					flex-direction: column;
@@ -121,6 +124,9 @@
 					.icon{
 						width: 90rpx;
 						height: 90rpx;
+					}
+					.boxTitle{
+						font-weight: 500;
 					}
 				}
 			}

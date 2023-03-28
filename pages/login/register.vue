@@ -1,7 +1,7 @@
 <template>
 	<view class="mainLogin">
 		<view class="loginCard">
-			<view class="gotoIndex" @click="gotoIndex">
+			<view class="gotoIndex" @tap="$u.throttle(gotoIndex, 500)">
 				<span>返回首页</span>
 				<img src="../../static/image/首页1.png" alt="前往首页"></img>
 			</view>
@@ -13,7 +13,7 @@
 			    v-model="registerId"
 			  ></input>
 			</view>
-			<p class='remindBoxOne'>请输入8-16位的数字、字母组合</p>
+			<p class='remindBoxOne' v-show="!inputRuleJudge(registerId)">请输入8-16位的数字、字母组合</p>
 			<view class="userPasswordOne">
 			<span>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</span>
 			  <input
@@ -22,7 +22,7 @@
 			    v-model="registerPassword"
 			  ></input>
 			</view>
-			<p class='remindBoxTwo'>请输入8-16位的数字、字母组合</p>
+			<p class='remindBoxTwo' v-show="!inputRuleJudge(registerPassword)">请输入8-16位的数字、字母组合</p>
 			<view class="userPasswordTwo">
 			<span>确认密码：</span>
 			  <input
@@ -31,15 +31,20 @@
 			    v-model="registerPasswordAgain"
 			  ></input>
 			</view>
-			<p class='remindBoxThree'>两次输入的密码不同</p>
+			<p class='remindBoxThree' v-show="registerPassword!==registerPasswordAgain">两次输入的密码不同</p>
 			<view class="loginBox">
-				<button size="mini" class="register">注册</button>
+				<button size="mini" class="register" @click="registerUser" :disabled="!inputRuleJudge(registerId)||!inputRuleJudge(registerPassword)||(registerPassword!==registerPasswordAgain)">注册</button>
 			</view>
 		</view>
+		<!-- 注册提示 -->
+		<u-toast ref="uToast"></u-toast>
 	</view>
 </template>
 
 <script>
+	import {inputRule} from '../../untils/inputRules.js'
+	import {loginLocalStorage} from '../../untils/useLocalstorage.js'
+	import md5 from '../../untils/md5.js'
 	export default {
 		name:"register",
 		data(){
@@ -54,10 +59,67 @@
 				uni.switchTab({
 					url: '../index/index'
 				});
+			},
+			inputRuleJudge(str){
+				return inputRule(str);
+			},
+			registerUser(){
+				const userStorage = loginLocalStorage();
+				let userId = this.registerId;
+				let passWord = md5.hex_md5(this.registerPassword); //加密后的密码
+				// 查看是否重复注册
+				let userData = userStorage.getItem("USERSDATA");
+				let flag = true;
+				if (userData !== null) {
+				     //如果userData不为空
+				     Object.keys(userData).forEach((item) => {
+				       if (item === userId) {
+				         flag = false;
+				         this.showToast({
+							type: 'error',
+							icon: false,
+							title: '失败主题',
+							message: "该用户名已被注册",
+							iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png'
+						})
+				       }
+				    });
+				}
+				if (flag) {
+				  const user = {
+					  userId,
+					  passWord,
+					  isLoading:false//是否正在登录
+				  }
+				  userStorage.setItem("USERSDATA", userId,user);
+				  this.showToast({
+				  			type: 'success',
+				  			title: '注册成功',
+				  			message: "注册成功",
+				  			iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/success.png'
+						})
+					// 清空之前的输入
+					this.registerId='';
+					this.registerPassword='';
+					this.registerPasswordAgain='';
+					// 两秒后跳转到登录页面
+					setTimeout(()=>{
+						uni.navigateTo({
+							url:"./login"
+						})
+					},1500)
+				}
+				
+			},
+			// 消息提示
+			showToast(params) {
+					this.$refs.uToast.show({
+						...params,
+				})
 			}
+
 		},
 		onLoad() {
-			console.log(111)
 		}
 		
 	}

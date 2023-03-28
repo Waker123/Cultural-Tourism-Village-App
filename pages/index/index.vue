@@ -7,13 +7,14 @@
 		<!-- <week-todo class= 'weekTodo'></week-todo> -->
 		<!-- <daily-task class = 'dailyTask'></daily-task> -->
 		<!-- <time-line class='timeLine'></time-line> -->
-		<content-box class='contentMain'></content-box>
-		<scenic-spot class='scenicSpot'></scenic-spot>
+		<content-box class='contentMain' v-show="currentScenicSpot"></content-box>
+		<scenic-spot class='scenicSpot' v-show="currentScenicSpot"></scenic-spot>
 		<choose-spot class='chooseSpot'></choose-spot>
 	</view>
 </template>
 
 <script>
+	import {mapState} from 'vuex'
 	import background from '../../components/background/background.vue' //背景组件
 	// import backgroundTwo from '../../components/background/backgroundTwo.vue'
 	// import backgroundThree from '../../components/background/backgroundThree.vue'
@@ -37,6 +38,9 @@
 			contentBox,
 			scenicSpot,
 			chooseSpot
+		},
+		computed:{
+			...mapState("changeScenicSpot",['currentScenicSpot'])
 		}
 	}
 </script>

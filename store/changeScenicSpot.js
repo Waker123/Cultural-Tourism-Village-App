@@ -4,7 +4,6 @@ export default {
 	namespaced:true,
 	actions:{
 		getScenicData(context,value){
-			console.log("action被调用了",value)
 			uni.showLoading({
 				title:"加载中",
 			});
@@ -12,8 +11,8 @@ export default {
 			 getScenicSpotData({
 				 currentScenicSpot:value
 				 }).then((res) => {
-					 console.log(res);
-					 context.commit('changeScenicSpotData',res.data);
+					 console.log(res.data,'数据');
+					 context.commit('changeScenicSpotData',res.data.introduce);
 			  uni.hideLoading(); // 关闭加载中弹框
 			}).catch((err) => {
 			  console.log(err); 
@@ -28,13 +27,14 @@ export default {
 			state.scenicSpotShow = value;
 		},
 		// action中做完异步操作后，将数据返回给mutations来修改state
+		// 景点简介
 		changeScenicSpotData(state,value){
-			state.scenicSpotData = value;
+			state.scenicSpotIntroduce = value;
 		}
 	},
 	state:{
 		currentScenicSpot:'',
 		scenicSpotShow:true,//默认开启，打开主页时选择景点
-		scenicSpotData:{}
+		scenicSpotIntroduce:[]
 	}
 }
