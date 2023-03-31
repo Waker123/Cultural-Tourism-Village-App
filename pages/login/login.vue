@@ -24,16 +24,20 @@
 			</view>
 			<p class='remindBoxTwo' v-show="!inputRuleJudge(userPassword)">请输入8-16位的数字、字母组合</p>
 			<view class="loginBox">
-				<button size="mini" class="login" :disabled="!inputRuleJudge(userId)||!inputRuleJudge(userPassword)">登录</button>
+				<button size="mini" class="login" @tap="$u.throttle(loginUser, 500)" :disabled="!inputRuleJudge(userId)||!inputRuleJudge(userPassword)">登录</button>
 				<!-- @tap uview的节流 -->
 				<button size="mini" class="register"  @tap="$u.throttle(gotoRegister, 500)">注册</button>
 			</view>
 		</view>
+		<!-- 注册提示 -->
+		<u-toast ref="uToast"></u-toast>
 	</view>
 </template>
 
 <script>
 	import {inputRule} from '../../untils/inputRules.js'
+	import md5 from '../../untils/md5.js'
+	import {mapState} from 'vuex';
 	export default {
 		name:"login",
 		data(){
@@ -41,6 +45,9 @@
 				userId: '',
 				userPassword:''
 			}
+		},
+		computed:{
+			...mapState("userData",["userData"]),
 		},
 		methods:{
 			gotoIndex(){
@@ -55,10 +62,55 @@
 			},
 			inputRuleJudge(str){
 				return inputRule(str);
+			},
+			loginUser(){
+				let userData  = this.userData;
+				let flag = false;
+				let loginName = this.userId;
+				let loginPassword=md5.hex_md5(this.userPassword);//获取加密后的密码
+				if(userData){
+					Object.keys(userData).forEach((item) => {
+					   if (item === loginName && userData[item]["password"] === loginPassword) {
+						this.$store.commit('userData/changeUserState',[loginName,"isLoading","true"]);
+					     flag = true;
+					   }
+					 });
+				}
+				if(flag){
+					this.showToast({
+					  			type: 'success',
+					  			title: '登录成功',
+					  			message: "登录成功",
+					  			iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/success.png'
+							})
+						// 清空之前的输入
+						this.userId='';
+						this.userPassword='';
+						// 两秒后跳转到登录页面
+						setTimeout(()=>{
+							uni.switchTab({
+								url:"/pages/user/user"
+							})
+						},1000)
+				}else{
+					this.showToast({
+						type: 'error',
+						icon: false,
+						title: '失败主题',
+						message: "用户名或密码输入错误",
+						iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/error.png'
+					})
+				}
+				
+			},
+			// 消息提示
+			showToast(params) {
+					this.$refs.uToast.show({
+						...params,
+				})
 			}
 		},
 		onLoad() {
-			console.log(111)
 		}
 		
 	}

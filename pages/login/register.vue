@@ -43,7 +43,7 @@
 
 <script>
 	import {inputRule} from '../../untils/inputRules.js'
-	import {loginLocalStorage} from '../../untils/useLocalstorage.js'
+	import {mapState} from 'vuex'
 	import md5 from '../../untils/md5.js'
 	export default {
 		name:"register",
@@ -53,6 +53,9 @@
 				registerPassword:'',
 				registerPasswordAgain:''
 			}
+		},
+		computed:{
+			...mapState("userData",["userData"]),
 		},
 		methods:{
 			gotoIndex(){
@@ -64,11 +67,10 @@
 				return inputRule(str);
 			},
 			registerUser(){
-				const userStorage = loginLocalStorage();
 				let userId = this.registerId;
-				let passWord = md5.hex_md5(this.registerPassword); //加密后的密码
+				let password = md5.hex_md5(this.registerPassword); //加密后的密码
 				// 查看是否重复注册
-				let userData = userStorage.getItem("USERSDATA");
+				let userData = this.userData;
 				let flag = true;
 				if (userData !== null) {
 				     //如果userData不为空
@@ -88,10 +90,10 @@
 				if (flag) {
 				  const user = {
 					  userId,
-					  passWord,
+					  password,
 					  isLoading:false//是否正在登录
 				  }
-				  userStorage.setItem("USERSDATA", userId,user);
+				  this.$store.commit('userData/addUser',[userId,user]);
 				  this.showToast({
 				  			type: 'success',
 				  			title: '注册成功',

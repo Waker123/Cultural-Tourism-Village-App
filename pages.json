@@ -24,6 +24,9 @@
 		},
 		{
 			"path": "pages/main/introduce/introduce"
+		},
+		{
+			"path": "pages/main/homestay/homestay"
 		}
 	],
 	"tabBar": {
