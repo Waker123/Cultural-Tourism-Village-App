@@ -91,7 +91,7 @@
 				  const user = {
 					  userId,
 					  password,
-					  isLoading:false//是否正在登录
+					  isLoading:false,//是否正在登录
 				  }
 				  this.$store.commit('userData/addUser',[userId,user]);
 				  this.showToast({

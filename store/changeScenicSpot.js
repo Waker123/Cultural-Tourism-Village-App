@@ -12,7 +12,8 @@ export default {
 				 currentScenicSpot:value
 				 }).then((res) => {
 					 console.log(res.data,'数据');
-					 context.commit('changeScenicSpotData',res.data.introduce);
+					 context.commit('changeScenicSpotData',res.data);
+					 
 			  uni.hideLoading(); // 关闭加载中弹框
 			}).catch((err) => {
 			  console.log(err); 
@@ -29,12 +30,14 @@ export default {
 		// action中做完异步操作后，将数据返回给mutations来修改state
 		// 景点简介
 		changeScenicSpotData(state,value){
-			state.scenicSpotIntroduce = value;
-		}
+			state.scenicSpotIntroduce = value.introduce;
+			state.scenicSpotHomestay = value.homestay;
+		},
 	},
 	state:{
 		currentScenicSpot:'',
 		scenicSpotShow:true,//默认开启，打开主页时选择景点
-		scenicSpotIntroduce:[]
+		scenicSpotIntroduce:[],
+		scenicSpotHomestay:[]
 	}
 }

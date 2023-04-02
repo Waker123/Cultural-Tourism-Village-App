@@ -3,7 +3,6 @@ import useLocalStorage from './../untils/useLocalstorage'
 export default {
 	namespaced:true,
 	actions:{
-		
 	},
 	mutations:{
 		// 添加新的user
@@ -23,6 +22,7 @@ export default {
 			state.userData = getUserData();
 			state.userIsLoading = getUserLoading();
 			state.userIsLoadingId = getUserLoadingId();
+			state.userReserveHomestay = getUserReserveHomestay();
 		},
 		// 取消所有用户的登录状态
 		clearUserLoading(state,value){
@@ -41,7 +41,8 @@ export default {
 	state:{
 		userData:getUserData(),
 		userIsLoading:getUserLoading(),
-		userIsLoadingId:getUserLoadingId()
+		userIsLoadingId:getUserLoadingId(),
+		userReserveHomestay:getUserReserveHomestay()
 	}
 }
 
@@ -73,4 +74,15 @@ function getUserLoadingId(){
 		}
 	})
 	return str;
+}
+
+function getUserReserveHomestay(){
+	const userStorage = loginLocalStorage();
+	const userData = userStorage.getItem("USERSDATA");
+	if(!getUserLoading()) return;//当没有用户登录时，直接退出
+	if(userData[getUserLoadingId()]['ReserveHomestay']){
+		return userData[getUserLoadingId()]['ReserveHomestay'];
+	}else{
+		return [];
+	}
 }

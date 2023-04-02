@@ -134,5 +134,31 @@
 		font-family: 'yuan';
 		margin-bottom: 10rpx;
 	}
+	.popBox{
+			position: relative;
+			width: 400rpx;
+			height: 250rpx;
+			background-color: rgba(255, 255, 255, .8);
+			border: 4rpx solid rgba(255, 255, 255, .8);
+			border-radius: 20%;
+			span{
+				position: absolute;
+				top: 10%;
+				left: 50%;
+				width: 350rpx;
+				font-family: 'yuan';
+				transform: translateX(-45%);
+				font-size: 50rpx;
+			}
+			button{
+				font-family: 'yuan';
+				position: absolute;
+				top: 60%;
+				left: 50%;
+				transform: translateX(-50%);
+				padding: 10rpx 15rpx;
+			}
+		}
+	
 	/* #endif */
 </style>
