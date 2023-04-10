@@ -23,6 +23,7 @@ export default {
 			state.userIsLoading = getUserLoading();
 			state.userIsLoadingId = getUserLoadingId();
 			state.userReserveHomestay = getUserReserveHomestay();
+			state.userReserveSpeciality = getUserReserveSpeciality();
 		},
 		// 取消所有用户的登录状态
 		clearUserLoading(state,value){
@@ -42,7 +43,9 @@ export default {
 		userData:getUserData(),
 		userIsLoading:getUserLoading(),
 		userIsLoadingId:getUserLoadingId(),
-		userReserveHomestay:getUserReserveHomestay()
+		userReserveHomestay:getUserReserveHomestay(),
+		userReserveSpeciality:getUserReserveSpeciality(),
+		
 	}
 }
 
@@ -51,37 +54,53 @@ function getUserData(){
 	const userData = userStorage.getItem("USERSDATA");
 	return userData !== null ? userData:{};
 }
-
+// 是否有用户正在登录
 function getUserLoading(){
 	const userStorage = loginLocalStorage();
 	const userData = userStorage.getItem("USERSDATA");
 	let flag = false;
-	Object.keys(userData).forEach((item)=>{
-		if(userData[item]['isLoading']==='true'){
-			flag = true;
-		}
-	})
+	if(userData){
+		Object.keys(userData).forEach((item)=>{
+			if(userData[item]['isLoading']==='true'){
+				flag = true;
+			}
+		})
+	}
 	return flag;
 }
-
+// 目前登录的用户id
 function getUserLoadingId(){
 	const userStorage = loginLocalStorage();
 	const userData = userStorage.getItem("USERSDATA");
 	let str = 'NULL';
-	Object.keys(userData).forEach((item)=>{
-		if(userData[item]['isLoading']==='true'){
-			str = userData[item]['userId'];
-		}
-	})
+	if(userData){
+		Object.keys(userData).forEach((item)=>{
+			if(userData[item]['isLoading']==='true'){
+				str = userData[item]['userId'];
+			}
+		})
+	}
 	return str;
 }
-
+//民宿
 function getUserReserveHomestay(){
 	const userStorage = loginLocalStorage();
 	const userData = userStorage.getItem("USERSDATA");
 	if(!getUserLoading()) return;//当没有用户登录时，直接退出
-	if(userData[getUserLoadingId()]['ReserveHomestay']){
-		return userData[getUserLoadingId()]['ReserveHomestay'];
+	if(userData[getUserLoadingId()]['reserveHomestay']){
+		console.log(userData[getUserLoadingId()]['reserveHomestay'],"re")
+		return userData[getUserLoadingId()]['reserveHomestay'];
+	}else{
+		return [];
+	}
+}
+//特产
+function getUserReserveSpeciality(){
+	const userStorage = loginLocalStorage();
+	const userData = userStorage.getItem("USERSDATA");
+	if(!getUserLoading()) return;//当没有用户登录时，直接退出
+	if(userData[getUserLoadingId()]['reserveSpeciality']){
+		return userData[getUserLoadingId()]['reserveSpeciality'];
 	}else{
 		return [];
 	}

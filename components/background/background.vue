@@ -1,6 +1,6 @@
 <template>
 	<view class="mainBackground">
-		<u-transition :show="currentScenicSpot===scenicSpot[0]" mode="fade">
+		<u-transition :show="currentScenicSpot===scenicSpot[3]" mode="fade">
 			<view class="transition background backgroundOne"></view>
 		</u-transition>
 		<u-transition :show="currentScenicSpot===scenicSpot[1]" mode="fade">
@@ -9,7 +9,7 @@
 		<u-transition :show="currentScenicSpot===scenicSpot[2]" mode="fade">
 			<view class="transition background backgroundThree"></view>
 		</u-transition>
-		<u-transition :show="currentScenicSpot===scenicSpot[3]" mode="fade">
+		<u-transition :show="currentScenicSpot===scenicSpot[0]" mode="fade">
 			<view class="transition background backgroundFour"></view>
 		</u-transition>
 	</view>

@@ -1,4 +1,5 @@
 <template>
+	<!-- 景区介绍 -->
 	<view class="mainIntroduce">
 		<background class='background'></background>
 		<scroll-view  v-show="scenicSpotIntroduce"  scroll-y="true" class="scroll-Y" >

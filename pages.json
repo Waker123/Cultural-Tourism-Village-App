@@ -29,6 +29,9 @@
 			"path": "pages/main/homestay/homestay"
 		},
 		{
+			"path": "pages/main/speciality/speciality"
+		},
+		{
 			"path": "pages/user/myReserve/myReserve"
 		}
 	],

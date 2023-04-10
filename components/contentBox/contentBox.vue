@@ -17,12 +17,13 @@
 					<span class='boxTitle'>乡村民宿</span>
 				</a>
 			</li>
-			<!-- <li class='box'>
-				<a class="hrefBox" @click="aaa">
-					<img class="icon" src="../../static/image/fengjing2.png">
-					<span class='boxTitle'>景点介绍</span>
+			 <li class='box'>
+				<a class="hrefBox" @tap="$u.throttle(scenicSpotSpeciality, 500)">
+					<img class="icon" src="../../static/image/speciality.png">
+					<span class='boxTitle'>乡村特产</span>
 				</a>
 			</li>
+			<!--
 			<li class='box'>
 				<a class="hrefBox" @click="aaa">
 					<img class="icon" src="../../static/image/fengjing2.png">
@@ -98,7 +99,12 @@
 				uni.navigateTo({
 					url: '../../pages/main/homestay/homestay'
 				})
-			}
+			},
+			scenicSpotSpeciality(){
+				uni.navigateTo({
+					url: '../../pages/main/speciality/speciality'
+				})
+			},
 		}
 		
 	}

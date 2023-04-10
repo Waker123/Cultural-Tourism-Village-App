@@ -32,12 +32,14 @@ export default {
 		changeScenicSpotData(state,value){
 			state.scenicSpotIntroduce = value.introduce;
 			state.scenicSpotHomestay = value.homestay;
+			state.scenicSpotSpeciality = value.speciality;
 		},
 	},
 	state:{
 		currentScenicSpot:'',
 		scenicSpotShow:true,//默认开启，打开主页时选择景点
 		scenicSpotIntroduce:[],
-		scenicSpotHomestay:[]
+		scenicSpotHomestay:[],
+		scenicSpotSpeciality:[],
 	}
 }
