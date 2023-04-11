@@ -1,6 +1,19 @@
 <!-- 用户的名片：包括用户的头像显示，资料的显示以及修改 -->
 <template>
 	<view class="mainUserCard">
+		<view class="userCell">
+		<u-cell-group  :customStyle="{
+			'fontSize':'40rpx',
+			'fontWeight':'400'
+		}">
+			<u-cell
+			    title="我的预定"
+			    :isLink='true'
+				size='large'
+				@click="goToMyReserve"
+			></u-cell>
+		</u-cell-group>
+		</view>
 		<button class="exitBtn" v-if="userIsLoading" @click="exit">退出登录</button>
 	</view>
 </template>
@@ -22,6 +35,11 @@
 		methods:{
 			exit(){
 				this.$store.commit('userData/clearUserLoading','');
+			},
+			goToMyReserve(){
+				uni.navigateTo({
+					url:"/pages/user/myReserve/myReserve"
+				})
 			}
 		}
 	}
@@ -43,6 +61,12 @@
 			font-size: 40rpx;
 			font-weight: 700;
 			background-color: rgba(#FF0000, .8);
+		}
+		.userCell{
+			position: absolute;
+			width: 600rpx;
+			left: 8%;
+			top: 5%;
 		}
 	}
 </style>

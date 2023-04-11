@@ -7,7 +7,7 @@
 					<p  class="homestay">预定的民宿👇</p>
 					<view class="homestayBox" v-for="(item2,index) in myReserve[item]['homestay']" :key="index">
 						<span class="title">{{item2.name}}</span>
-						<span class='delete' @click="Delete(item2)">X</span>
+						<span class='delete' @click="DeleteHomestay(index)">X</span>
 						<span class="price">{{item2.price}}</span>
 					</view>
 				</view>
@@ -15,7 +15,7 @@
 					<p  class="speciality">预定的特产👇</p>
 					<view class="specialityBox" v-for="(item2,index) in myReserve[item]['speciality']" :key="index">
 						<span class="title">{{item2.name}}</span>
-						<span class='delete'  @click="Delete(item2)">X</span>
+						<span class='delete'  @click="DeleteSpeciality(index)">X</span>
 						<span class="price">{{item2.price}}</span>
 					</view>
 				</view>
@@ -88,7 +88,6 @@
 				  this.scenicSpot = res.data
 				  uni.hideLoading(); // 关闭加载中弹框
 				  this.setMyReserve();
-				
 				}).catch((err) => {
 				  console.log(err); 
 				});
@@ -111,10 +110,23 @@
 					})
 				}
 			},
-			Delete(item2){
+			DeleteHomestay(index){
 				this.reserveConfirmShow = true;
-				this.deleteThing = item2;
-				console.log(this.deleteThing)
+				let homestayList = this.userReserveHomestay;
+				homestayList.forEach((item,i)=>{
+					if(index === i){
+						this.deleteThing = item;
+					}
+				})
+			},
+			DeleteSpeciality(index){
+				this.reserveConfirmShow = true;
+				let specialityList = this.userReserveSpeciality;
+				specialityList.forEach((item,i)=>{
+					if(index === i){
+						this.deleteThing = item;
+					}
+				})
 			},
 			confirm(){
 				const obj = this.deleteThing;

@@ -33,6 +33,9 @@
 		},
 		{
 			"path": "pages/user/myReserve/myReserve"
+		},
+		{
+			"path": "pages/main/scenery/scenery"
 		}
 	],
 	"tabBar": {

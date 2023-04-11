@@ -23,13 +23,13 @@
 					<span class='boxTitle'>乡村特产</span>
 				</a>
 			</li>
-			<!--
 			<li class='box'>
-				<a class="hrefBox" @click="aaa">
-					<img class="icon" src="../../static/image/fengjing2.png">
-					<span class='boxTitle'>景点介绍</span>
+				<a class="hrefBox" @tap="$u.throttle(scenicSpotScenery, 500)">
+					<img class="icon" src="../../static/image/meijing.png">
+					<span class='boxTitle'>乡村美景</span>
 				</a>
 			</li>
+			<!--
 			<li class='box'>
 				<a class="hrefBox" @click="aaa">
 					<img class="icon" src="../../static/image/fengjing2.png">
@@ -105,6 +105,11 @@
 					url: '../../pages/main/speciality/speciality'
 				})
 			},
+			scenicSpotScenery(){
+				uni.navigateTo({
+					url:'../../pages/main/scenery/scenery'
+				})
+			}
 		}
 		
 	}

@@ -52,6 +52,15 @@
 			...mapState("changeScenicSpot",['scenicSpotHomestay','currentScenicSpot']),
 			...mapState('userData',['userIsLoading',"userIsLoadingId","userReserveHomestay"])
 		},
+		watch:{
+			userReserveHomestay:{
+				immediate:true,
+				deep:true,
+				handler(newValue){
+					this.updateRserveHomestay();//防止刷新后订阅酒店，之前的订阅消失的问题
+				}
+			}
+		},
 		methods:{
 			getToIndex(){
 				uni.switchTab({
@@ -62,6 +71,9 @@
 				uni.navigateTo({
 					url:"/pages/login/login"
 				})
+			},
+			updateRserveHomestay(){
+				this.reserveHomestay = this.userReserveHomestay;
 			},
 			reserve(item){
 				this.reserveHomestay.push(item);

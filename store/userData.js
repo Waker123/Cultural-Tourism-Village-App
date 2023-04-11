@@ -32,7 +32,6 @@ export default {
 			Object.keys(data).forEach(item=>{
 				data[item]['isLoading'] = 'false';
 			})
-			console.log(data,'clear');
 			userStorage.setItem("USERSDATA",data);
 			state.userData = getUserData();
 			state.userIsLoading = getUserLoading();
@@ -88,7 +87,6 @@ function getUserReserveHomestay(){
 	const userData = userStorage.getItem("USERSDATA");
 	if(!getUserLoading()) return;//当没有用户登录时，直接退出
 	if(userData[getUserLoadingId()]['reserveHomestay']){
-		console.log(userData[getUserLoadingId()]['reserveHomestay'],"re")
 		return userData[getUserLoadingId()]['reserveHomestay'];
 	}else{
 		return [];
