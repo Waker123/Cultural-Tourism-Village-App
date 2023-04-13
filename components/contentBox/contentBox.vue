@@ -35,13 +35,13 @@
 					<span class='boxTitle'>乡村视频</span>
 				</a>
 			</li>
-			<!--
 			<li class='box'>
-				<a class="hrefBox" @click="aaa">
-					<img class="icon" src="../../static/image/fengjing2.png">
-					<span class='boxTitle'>景点介绍</span>
+				<a class="hrefBox">
+					<scenic-spot-map class='icon' ></scenic-spot-map>
+					<span class='boxTitle'>地图导航</span>
 				</a>
 			</li>
+			<!--
 			<li class='box'>
 				<a class="hrefBox" @click="aaa">
 					<img class="icon" src="../../static/image/fengjing2.png">
@@ -83,11 +83,15 @@
 </template>
 
 <script>
+	import scenicSpotMap from '../scenicSpotMap/scenicSpotMap.vue'
 	export default{
 		name:'contentBox',
 		data(){
 			return{
 			}
+		},
+		components:{
+			scenicSpotMap
 		},
 		methods:{
 			scenicSpotIntroduce(){

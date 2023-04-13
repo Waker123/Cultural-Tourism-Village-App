@@ -53,7 +53,14 @@
         },
 		"optimization":{
 			"subPackages":true
-		}
+		},
+		"permission" : {
+			    "scope.userLocation" : {
+			        "desc" : "获取位置信息"
+			    }
+			},
+		"requiredPrivateInfos" : [ "getLocation" ]
+
     },
     "h5" : {
         "devServer" : {

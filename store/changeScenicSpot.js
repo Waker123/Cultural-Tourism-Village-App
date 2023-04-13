@@ -34,6 +34,7 @@ export default {
 			state.scenicSpotSpeciality = value.speciality;
 			state.scenicSpotScenery = value.scenery;
 			state.scenicSpotVideos = value.videos;
+			state.scenicSpotPosition = value.position;
 		},
 	},
 	state:{
@@ -43,6 +44,7 @@ export default {
 		scenicSpotHomestay:[],
 		scenicSpotSpeciality:[],
 		scenicSpotScenery:[],
-		scenicSpotVideos:[]
+		scenicSpotVideos:[],
+		scenicSpotPosition:{}
 	}
 }
