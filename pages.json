@@ -3,9 +3,11 @@
 			"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
 		},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		
 		{
 			"path": "pages/index/index"//"pages/index/index",
+		},
+		{
+			"path": "pages/user/user"
 		},
 		{
 			"path": "pages/login/register"
@@ -16,28 +18,68 @@
 		{
 			"path": "pages/mask/mask"
 		},
-		{
-			"path": "pages/myBlog/myBlog"
-		},
-		{
-			"path": "pages/user/user"
-		},
-		{
-			"path": "pages/main/introduce/introduce"
-		},
-		{
-			"path": "pages/main/homestay/homestay"
-		},
-		{
-			"path": "pages/main/speciality/speciality"
-		},
+		// {
+		// 	"path": "pages/main/introduce/introduce"
+		// },
+		// {
+		// 	"path": "pages/main/homestay/homestay"
+		// },
+		// {
+		// 	"path": "pages/main/speciality/speciality"
+		// },
 		{
 			"path": "pages/user/myReserve/myReserve"
-		},
-		{
-			"path": "pages/main/scenery/scenery"
 		}
+		// {
+		// 	"path": "pages/main/scenery/scenery"
+		// },
+		// {
+		// 	"path": "pages/main/video/video"
+		// }
 	],
+	"subpackages": [
+	  {
+	    "root": "page_main",
+	    "pages": [
+				{
+					"path": "main/introduce/introduce"
+				},
+				{
+					"path": "main/homestay/homestay"
+				},
+				{
+					"path": "main/speciality/speciality"
+				},
+				{
+					"path": "main/scenery/scenery"
+				},
+				{
+					"path": "main/video/scenicSpotVideo"
+				}
+	    ]
+	  }
+	],
+	  // {
+	//     "root": "pages_main",
+	//     "pages": [
+	// 		{
+	//         "path":"main/introduce/introduce"
+	// 		},
+	// 		{
+	// 		"path":"main/homestay/homestay"
+	// 		},
+	// 		{
+	// 	    "path":"main/speciality/speciality"
+	// 		},
+	// 		{
+	// 	    "path":"main/scenery/scenery"
+	// 		},
+	// 		{
+	// 	    "path":"main/video/video"
+	// 		}
+	//     ]
+	//   }
+	// ],
 	"tabBar": {
 		"color": "9F79EE",
 		"selectedColor":"B0E2FF",

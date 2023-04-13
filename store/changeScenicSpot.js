@@ -28,11 +28,12 @@ export default {
 			state.scenicSpotShow = value;
 		},
 		// action中做完异步操作后，将数据返回给mutations来修改state
-		// 景点简介
 		changeScenicSpotData(state,value){
 			state.scenicSpotIntroduce = value.introduce;
 			state.scenicSpotHomestay = value.homestay;
 			state.scenicSpotSpeciality = value.speciality;
+			state.scenicSpotScenery = value.scenery;
+			state.scenicSpotVideos = value.videos;
 		},
 	},
 	state:{
@@ -41,5 +42,7 @@ export default {
 		scenicSpotIntroduce:[],
 		scenicSpotHomestay:[],
 		scenicSpotSpeciality:[],
+		scenicSpotScenery:[],
+		scenicSpotVideos:[]
 	}
 }

@@ -37,7 +37,7 @@
 		methods:{
 			getToIndex(){
 				uni.switchTab({
-					url:'../../index/index'
+					url:'../../../pages/index/index'
 				})
 			}
 		}
@@ -70,7 +70,6 @@
 				background-color: rgba(255, 255, 255, .5);
 				border-radius: 50rpx;
 				h2{
-					font-family: 'yuan';
 					margin-bottom: 10rpx;
 				}
 			}
@@ -87,12 +86,10 @@
 				top: 10%;
 				left: 50%;
 				width: 350rpx;
-				font-family: 'yuan';
 				transform: translateX(-45%);
 				font-size: 50rpx;
 			}
 			button{
-				font-family: 'yuan';
 				position: absolute;
 				top: 60%;
 				left: 50%;
@@ -132,7 +129,6 @@
 	.title{
 		font-size: 40rpx;
 		font-weight: 700;
-		font-family: 'yuan';
 		margin-bottom: 10rpx;
 	}
 	.popBox{
@@ -147,12 +143,10 @@
 				top: 10%;
 				left: 50%;
 				width: 350rpx;
-				font-family: 'yuan';
 				transform: translateX(-45%);
 				font-size: 50rpx;
 			}
 			button{
-				font-family: 'yuan';
 				position: absolute;
 				top: 60%;
 				left: 50%;

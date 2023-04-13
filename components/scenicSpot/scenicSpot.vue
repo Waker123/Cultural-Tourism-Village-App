@@ -32,7 +32,6 @@
 			border: 4rpx solid rgba(255, 255, 255, .8);
 			border-radius: 30rpx;
 			line-height: 100rpx;
-			font-family: "yuan";
 			font-size: 40rpx;
 			p{
 				margin-left: 70rpx;

@@ -3,10 +3,11 @@
 	<view class="mainUserCard">
 		<!-- uview头像组件 -->
 		<view class="userHead" v-if="!userIsLoading" @click="gotoLogin">
-			<u-avatar  size="60" ></u-avatar>	
+			<image src="https://img1.baidu.com/it/u=13729157,1373113090&fm=253&fmt=auto&app=138&f=JPEG?w=204&h=207" mode=""></image>
 		</view>
 		<view class="userHead" v-if="userIsLoading" >
-			<u-avatar :src=src size="60" ></u-avatar>	
+			<!-- <u-avatar :src=src size="60" ></u-avatar>	 -->
+			<image :src="src"></image>
 		</view>
 		<p class='userName' v-if="!userIsLoading" @click="gotoLogin">点击登录</p>	
 		<p class='userName' v-if="userIsLoading" >{{userIsLoadingId}}</p>	
@@ -146,6 +147,12 @@
 		.userHead{
 			top: 13%;
 			left: 10%;
+			image{
+				width: 180rpx;
+				height: 180rpx;
+				border-radius: 50%;
+				transform: translate(-15%,-15%);
+			}
 		}
 		.userName{
 			font-size: 60rpx;

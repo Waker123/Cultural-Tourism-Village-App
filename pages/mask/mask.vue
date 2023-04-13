@@ -10,6 +10,7 @@
 			<view class="transition maskText">
 				<p>点击屏幕跳过</p>
 			</view>
+
 		</u-transition>
 	</view>
 </template>
@@ -53,7 +54,6 @@
 		.titleOne,.maskText{
 			position: absolute;
 			color: white;
-			font-family: 'yuan';
 			font-size: 65rpx;
 			font-weight: 700;
 			// opacity: .7;

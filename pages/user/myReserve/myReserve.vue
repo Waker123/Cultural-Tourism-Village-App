@@ -243,7 +243,6 @@
 					}
 				}
 				.none{
-					font-family: 'yuan';
 					font-size: 60rpx;
 					font-weight: 700;
 				}
@@ -261,12 +260,10 @@
 				top: 10%;
 				left: 50%;
 				width: 350rpx;
-				font-family: 'yuan';
 				transform: translateX(-45%);
 				font-size: 50rpx;
 			}
 			button{
-				font-family: 'yuan';
 				position: absolute;
 				top: 60%;
 				left: 50%;

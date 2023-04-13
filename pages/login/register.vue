@@ -141,7 +141,6 @@
 			background-color: rgba(255, 255, 255, .8);
 			border-radius: 50rpx;
 			box-shadow: 10rpx 10rpx 10rpx 10rpx rgba(0, 0, 0, .2);
-			font-family:"yuan";
 			.gotoIndex{
 				position: absolute;
 				top: 5%;

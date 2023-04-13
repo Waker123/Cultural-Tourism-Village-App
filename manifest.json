@@ -50,7 +50,10 @@
         "appid" : "wx1972c403f6a7853d",
         "setting" : {
             "urlCheck" : true
-        }
+        },
+		"optimization":{
+			"subPackages":true
+		}
     },
     "h5" : {
         "devServer" : {

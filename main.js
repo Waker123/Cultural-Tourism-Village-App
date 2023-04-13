@@ -5,7 +5,9 @@ import store from 'store/index.js'
 //公共js
 import PubFuc from'./publicjs/common'
 
+
 Vue.config.productionTip = false
+
 
 App.mpType = 'app'
 //挂载

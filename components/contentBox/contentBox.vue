@@ -29,13 +29,13 @@
 					<span class='boxTitle'>乡村美景</span>
 				</a>
 			</li>
-			<!--
 			<li class='box'>
-				<a class="hrefBox" @click="aaa">
-					<img class="icon" src="../../static/image/fengjing2.png">
-					<span class='boxTitle'>景点介绍</span>
+				<a class="hrefBox" @tap="$u.throttle(scenicSpotVideo, 500)">
+					<img class="icon" src="../../static/image/video.png">
+					<span class='boxTitle'>乡村视频</span>
 				</a>
 			</li>
+			<!--
 			<li class='box'>
 				<a class="hrefBox" @click="aaa">
 					<img class="icon" src="../../static/image/fengjing2.png">
@@ -92,22 +92,27 @@
 		methods:{
 			scenicSpotIntroduce(){
 				uni.navigateTo({
-					url: '../../pages/main/introduce/introduce'
+					url: '../../page_main/main/introduce/introduce'
 				})
 			},
 			scenicSpotHomestay(){
 				uni.navigateTo({
-					url: '../../pages/main/homestay/homestay'
+					url: '../../page_main/main/homestay/homestay'
 				})
 			},
 			scenicSpotSpeciality(){
 				uni.navigateTo({
-					url: '../../pages/main/speciality/speciality'
+					url: '../../page_main/main/speciality/speciality'
 				})
 			},
 			scenicSpotScenery(){
 				uni.navigateTo({
-					url:'../../pages/main/scenery/scenery'
+					url:'../../page_main/main/scenery/scenery'
+				})
+			},
+			scenicSpotVideo(){
+				uni.navigateTo({
+					url:'/page_main/main/video/scenicSpotVideo'
 				})
 			}
 		}
