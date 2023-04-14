@@ -1,8 +1,4 @@
-let BASE_URL = 'http://localhost:7000';    //不是h5默认这个地址
-// #ifdef H5
-BASE_URL = '/api';    //H5下将地址修改为/dpc
-// #endif
- 
+import {baseUrl} from './baseUrl.js'
 //附上网络请求的封装
 export default (options)=>{
 	uni.showLoading({
@@ -10,7 +6,7 @@ export default (options)=>{
 	})
 	return new Promise((resolve,reject) =>{
 		uni.request({
-			url:BASE_URL + options.url,
+			url:baseUrl + options.url,
 			method:options.method || 'GET',
 			data:options.data || {},
 			success(res) {

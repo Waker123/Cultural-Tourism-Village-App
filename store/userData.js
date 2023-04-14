@@ -24,6 +24,7 @@ export default {
 			state.userIsLoadingId = getUserLoadingId();
 			state.userReserveHomestay = getUserReserveHomestay();
 			state.userReserveSpeciality = getUserReserveSpeciality();
+			state.userImages = getUserImages();
 		},
 		// 取消所有用户的登录状态
 		clearUserLoading(state,value){
@@ -44,7 +45,7 @@ export default {
 		userIsLoadingId:getUserLoadingId(),
 		userReserveHomestay:getUserReserveHomestay(),
 		userReserveSpeciality:getUserReserveSpeciality(),
-		
+		userImages:getUserImages(),
 	}
 }
 
@@ -99,6 +100,18 @@ function getUserReserveSpeciality(){
 	if(!getUserLoading()) return;//当没有用户登录时，直接退出
 	if(userData[getUserLoadingId()]['reserveSpeciality']){
 		return userData[getUserLoadingId()]['reserveSpeciality'];
+	}else{
+		return [];
+	}
+}
+
+// 照片
+function getUserImages(){
+	const userStorage = loginLocalStorage();
+	const userData = userStorage.getItem("USERSDATA");
+	if(!getUserLoading()) return;//当没有用户登录时，直接退出
+	if(userData[getUserLoadingId()]['images']){
+		return userData[getUserLoadingId()]['images'];
 	}else{
 		return [];
 	}

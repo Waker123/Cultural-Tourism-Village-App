@@ -37,17 +37,17 @@
 			</li>
 			<li class='box'>
 				<a class="hrefBox">
-					<scenic-spot-map class='icon' ></scenic-spot-map>
+					<scenic-spot-map class='icon'></scenic-spot-map>
 					<span class='boxTitle'>地图导航</span>
 				</a>
 			</li>
-			<!--
 			<li class='box'>
-				<a class="hrefBox" @click="aaa">
-					<img class="icon" src="../../static/image/fengjing2.png">
-					<span class='boxTitle'>景点介绍</span>
+				<a class="hrefBox"  @tap="$u.throttle(scenicSpotImageSolicitation, 500)">
+					<img class="icon" src="../../static/image/picture.png">
+					<span class='boxTitle'>图片征稿</span>
 				</a>
 			</li>
+			<!--
 			<li class='box'>
 				<a class="hrefBox" @click="aaa">
 					<img class="icon" src="../../static/image/fengjing2.png">
@@ -118,6 +118,11 @@
 				uni.navigateTo({
 					url:'/page_main/main/video/scenicSpotVideo'
 				})
+			},
+			scenicSpotImageSolicitation(){
+				uni.navigateTo({
+					url:"/page_solicit/imageSolicitation/imageSolicitation"
+				})
 			}
 		}
 		
@@ -127,7 +132,7 @@
 <style lang="scss" scoped>
 	.contentMain{
 		width: 700rpx;
-		height: 500rpx;
+		// height: 500rpx;
 		background-color: rgba(255, 255, 255, .8);
 		border: 4rpx solid rgba(255, 255, 255, .8);
 		border-radius: 50rpx;
