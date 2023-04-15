@@ -47,19 +47,19 @@
 					<span class='boxTitle'>图片征稿</span>
 				</a>
 			</li>
+			<li class='box'>
+				<a class="hrefBox" @tap="$u.throttle(scenicSpotShortVideosSolicitation, 500)">
+					<img class="icon" src="../../static/image/shortVideo.png">
+					<span class='boxTitle'>短视频征稿</span>
+				</a>
+			</li>
+			<li class='box'>
+				<a class="hrefBox" @tap="$u.throttle(scenicSpotArticleSolicitation, 500)">
+					<img class="icon" src="../../static/image/article.png">
+					<span class='boxTitle'>文章征稿</span>
+				</a>
+			</li>
 			<!--
-			<li class='box'>
-				<a class="hrefBox" @click="aaa">
-					<img class="icon" src="../../static/image/fengjing2.png">
-					<span class='boxTitle'>景点介绍</span>
-				</a>
-			</li>
-			<li class='box'>
-				<a class="hrefBox" @click="aaa">
-					<img class="icon" src="../../static/image/fengjing2.png">
-					<span class='boxTitle'>景点介绍</span>
-				</a>
-			</li>
 			<li class='box'>
 				<a class="hrefBox" @click="aaa">
 					<img class="icon" src="../../static/image/fengjing2.png">
@@ -122,6 +122,16 @@
 			scenicSpotImageSolicitation(){
 				uni.navigateTo({
 					url:"/page_solicit/imageSolicitation/imageSolicitation"
+				})
+			},
+			scenicSpotShortVideosSolicitation(){
+				uni.navigateTo({
+					url:"/page_solicit/shortVideoSolicitation/shortVideoSolicitation"
+				})
+			},
+			scenicSpotArticleSolicitation(){
+				uni.navigateTo({
+					url:"/page_solicit/articleSolicitation/articleSolicitation"
 				})
 			}
 		}

@@ -13,7 +13,8 @@
 			<view v-if="photosSrc.length < 6" class="file imgFile" @tap="chooseImage">
 				<image style="width: 112upx;height: 98upx;"  mode=""></image>
 			</view>
-			<p v-show="uploadSuccessful" class="uploadSuccess">上传成功！即将返回</p>
+			<!-- <p v-show="uploadSuccessful" class="uploadSuccess">上传成功！即将返回</p> -->
+			<u-toast ref="uToast"></u-toast>
 		</view>
 	</view>
 </template>
@@ -34,7 +35,7 @@
 				imageLists:[],
 				params:'',/* 钓场id */
 				optionName:'',/*, 钓场name */
-				uploadSuccessful:false,
+				// uploadSuccessful:false,
 				successfulImages:0
 			}
 		},
@@ -45,8 +46,13 @@
 		watch:{
 			successfulImages(newValue){
 				if(newValue ===this.pic_tempFilePath.length){
-					this.uploadSuccessful = true;
 					this.storeImage();
+					this.showToast({
+								type: 'success',
+								title: '发表成功',
+								message: "发表成功，即将返回",
+								iconUrl: 'https://cdn.uviewui.com/uview/demo/toast/success.png',
+					})
 					setTimeout(()=>{
 						let pages = getCurrentPages();
 						let page =pages[pages.length-1];
@@ -207,7 +213,13 @@
 					scenicSpot:this.currentScenicSpot
 				})
 				this.$store.commit('userData/changeUserState',[this.userIsLoadingId,'images',list])
-			}
+			},
+			// 消息提示
+			showToast(params) {
+					this.$refs.uToast.show({
+						...params,
+				})
+			},
 		}
 	}
 </script>

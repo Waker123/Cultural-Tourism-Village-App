@@ -1,8 +1,8 @@
 <template>
    <view class="imagesMain">
    	<scroll-view  v-show="true"  scroll-y="true" class="scroll-Y" >
-  		<view class="card" v-for="(item,index) in albumData" :key="item.imageDate">
-			<album-image :myImageSrcs="item.imageSrc" :myUserId="item.userId" :myPictureTime="item.imageDate"></album-image>
+  		<view class="card" v-for="(item,index) in albumData" :key="item.articleDate">
+			<album-image :myArticleSrc="item.articleContent" :myUserId="item.userId" :myArticleTime="item.articleDate"></album-image>
    		</view>
    	</scroll-view>
 	<u-popup :show="!currentScenicSpot" mode="center">
@@ -11,9 +11,9 @@
 			<button size="mini" @click="getToIndex">前往首页</button>
 		</view>
 	</u-popup>
-	<view class="uploadImages" @tap="gotoUploadImages">
-		<image src="../../static/image/imageUpload.png" class="uploadImg"></image>
-		<span>上传图片</span>
+	<view class="uploadArticle" @tap="gotoUploadVideos">
+		<image src="../../static/image/textUpload.png" class="uploadImg"></image>
+		<span>上传文章</span>
 	</view>
    </view>
 </template>
@@ -22,7 +22,7 @@
 	import albumImage from './component/albumImages.vue'
 	import {mapState} from 'vuex'
 	export default{
-		name:"imageSolicitation",
+		name:"articleSolicitation",
 		components:{
 			albumImage
 		},
@@ -45,13 +45,13 @@
 				this.albumData = [];//清空 防止重复导入该数组
 				const data = this.userData;//user的总数据
 				Object.keys(data).forEach(item1=>{
-					if(data[item1]['images']){
-					data[item1]['images'].forEach(item2=>{
+					if(data[item1]['articles']){
+					data[item1]['articles'].forEach(item2=>{
 						if(item2["scenicSpot"]===this.currentScenicSpot){
 							this.albumData.push({
 								userId:item1,
-								imageSrc:item2['imageSrcs'],
-								imageDate:item2['imageDate']
+								articleContent:item2['articleContent'],
+								articleDate:item2['articleDate']
 							})
 						}
 					})
@@ -59,28 +59,15 @@
 				})
 				// 按时间降序(根据毫秒值排序)
 				this.albumData.sort((item1,item2)=>{
-					return item2["imageDate"] - item1['imageDate']
+					return item2["articleDate"] - item1['articleDate']
 				})
+				console.log(this.albumData,'111')
 			},
-			gotoUploadImages(){
+			gotoUploadVideos(){
 				uni.navigateTo({
-					url:"./uploadImages"
+					url:"./uploadArticles"
 				})
-			},
-			    reload() {
-			        // // 页面重载
-			        // const pages = getCurrentPages()
-			        // // 声明一个pages使用getCurrentPages方法
-			        // const curPage = pages[pages.length - 1]
-			        // // 声明一个当前页面
-			        // curPage.onLoad(curPage.options) // 传入参数
-			        // curPage.onShow()
-			        // curPage.onReady()
-			        // // 执行刷新
-					this.updateAlbumData();
-			    },
-			
-
+			}
 		},
 		watch:{
 			userData:{
@@ -91,27 +78,7 @@
 				}
 			}
 		},
-		mounted() {
-			// const count = 86400000;
-			// this.$store.commit('userData/changeUserState',[this.userIsLoadingId,'images',[
-			// 	{
-			// 			imageSrcs:['15.jpeg','16.jpeg','17.jpeg','18.jpeg'],
-			// 			imageDate:(+new Date()-count*25).toString(),
-			// 			scenicSpot:"指南村",
-			// 		},
-			// 		{
-			// 			imageSrcs:['19.jpeg'],
-			// 			imageDate:(+new Date()-count*45).toString(),
-			// 			scenicSpot:"指南村",
-			// 		},
-			// 		{
-			// 			imageSrcs:['20.jpeg','21.jpeg','22.jpeg'],
-			// 			imageDate:(+new Date()-count*.6).toString(),
-			// 			scenicSpot:"指南村",
-			// 		},
-			// 	]])
-			
-		}
+		
 		
 	}
 </script>
@@ -157,7 +124,7 @@
 			padding: 10rpx 15rpx;
 		}
 	}
-	.uploadImages{
+	.uploadArticle{
 		position: fixed;
 		top: 100rpx;
 		/*   #ifdef H5 */

@@ -69,6 +69,18 @@
 			  },
 			  {
 				  "path":"imageSolicitation/uploadImages"
+			  },
+			  {
+				  "path":"shortVideoSolicitation/shortVideoSolicitation"
+			  },
+			  {
+				  "path":"shortVideoSolicitation/uploadShortVideo"
+			  },
+			  {
+				  "path":"articleSolicitation/articleSolicitation"
+			  },
+			  {
+				  "path":"articleSolicitation/uploadArticles"
 			  }
 		  ]
 	  }

@@ -25,6 +25,7 @@ export default {
 			state.userReserveHomestay = getUserReserveHomestay();
 			state.userReserveSpeciality = getUserReserveSpeciality();
 			state.userImages = getUserImages();
+			state.userVideos = getUserVideos();
 		},
 		// 取消所有用户的登录状态
 		clearUserLoading(state,value){
@@ -37,6 +38,7 @@ export default {
 			state.userData = getUserData();
 			state.userIsLoading = getUserLoading();
 			state.userIsLoadingId = getUserLoadingId();
+			state.userArticles = getUserArticles();
 		}
 	},
 	state:{
@@ -46,6 +48,8 @@ export default {
 		userReserveHomestay:getUserReserveHomestay(),
 		userReserveSpeciality:getUserReserveSpeciality(),
 		userImages:getUserImages(),
+		userVideos:getUserVideos(),
+		userArticles:getUserArticles()
 	}
 }
 
@@ -112,6 +116,30 @@ function getUserImages(){
 	if(!getUserLoading()) return;//当没有用户登录时，直接退出
 	if(userData[getUserLoadingId()]['images']){
 		return userData[getUserLoadingId()]['images'];
+	}else{
+		return [];
+	}
+}
+
+// 视频
+function getUserVideos(){
+	const userStorage = loginLocalStorage();
+	const userData = userStorage.getItem("USERSDATA");
+	if(!getUserLoading()) return;//当没有用户登录时，直接退出
+	if(userData[getUserLoadingId()]['videos']){
+		return userData[getUserLoadingId()]['videos'];
+	}else{
+		return [];
+	}
+}
+
+// 文章
+function getUserArticles(){
+	const userStorage = loginLocalStorage();
+	const userData = userStorage.getItem("USERSDATA");
+	if(!getUserLoading()) return;//当没有用户登录时，直接退出
+	if(userData[getUserLoadingId()]['articles']){
+		return userData[getUserLoadingId()]['articles'];
 	}else{
 		return [];
 	}

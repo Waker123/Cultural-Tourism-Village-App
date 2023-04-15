@@ -19,9 +19,9 @@
                         ></u--text>
                         <u--text
                                 margin="0 0 8px 0"
-                                :text="dateTime(pictureTime)"
+                                :text="dateTime(videoTime)"
                         ></u--text>
-                        <u-album :urls="imageSrcs"></u-album>
+                        <my-video :src="videoSrc"></my-video>
                     </view>
                 </view>
             </view>
@@ -32,63 +32,65 @@
 <script>
 	import {baseUrl} from '../../../untils/baseUrl.js'
 	import {getDate} from '../../../untils/getDate.js'
+	import myVideo from './myVideo.vue'
 	export default{
 		name:"albumImage",
 		data(){
 			return{
 				 albumWidth: 0,
 				userId:this.myUserId,
-				imageSrcs:[],
-				pictureTime:this.myPictureTime
+				videoSrc:'',//因为组件需要传入的是数组
+				videoTime:this.myVideoTime
 			}
+		},
+		components:{
+			myVideo
 		},
 		props:{
 			myUserId:{
 				type:String,
 				required:true
 			},
-			myImageSrcs:{
-				type:Array,
+			myVideoSrc:{
+				type:String,
 				required:true
 			},
-			myPictureTime:{
+			myVideoTime:{
 				type:String,
 				required:true
 			}
 		},
 		watch:{
 			// 获取到的只是图片的名字，没有加上路径，在这边加上路径
-			myImageSrcs:{
+			myVideoSrc:{
 				immediate:true,
 				deep:true,
 				handler(newValue){
-					this.updateImageSrcs()
+					this.videoSrc = baseUrl+'/static/videos/'+this.myVideoSrc;
 				}
 			}
 		},
 		methods:{
-			updateImageSrcs() {
-				this.myImageSrcs.forEach(item=>{
-					this.imageSrcs.push(baseUrl+'/static/images/'+item);
-				})
-				this.imageSrcs = this.unique(this.imageSrcs)
-			},
+			// updateVideoSrc() {
+			// 	this.videoSrc.push(baseUrl+'/static/videos/'+this.myVideoSrc);
+			// 	this.videoSrc = this.unique(this.videoSrc)
+			// },
 			dateTime(ms){
 				return "拍摄于"+getDate(ms)
 			},
-			// 去重 防止页面刷新后，出现多次调用该组件，导致一张图片多次出现的bug
-			unique(arr) {
-			    const newArr = []
-			    const obj = {}
-			    arr.forEach(item => {
-			      if (!obj[item]) {
-			        newArr.push(item)
-			        obj[item] = true
-			      }
-			    })
+			// // 去重 防止页面刷新后，出现多次调用该组件，导致一张图片多次出现的bug
+			// unique(arr) {
+			//     const newArr = []
+			//     const obj = {}
+			//     arr.forEach(item => {
+			//       if (!obj[item]) {
+			//         newArr.push(item)
+			//         obj[item] = true
+			//       }
+			//     })
 			  
-			    return newArr
-			  }
+			//     return newArr
+			//   }
 
 		}
 

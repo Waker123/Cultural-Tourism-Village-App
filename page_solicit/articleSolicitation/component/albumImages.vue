@@ -19,9 +19,14 @@
                         ></u--text>
                         <u--text
                                 margin="0 0 8px 0"
-                                :text="dateTime(pictureTime)"
+                                :text="dateTime(articleTime)"
                         ></u--text>
-                        <u-album :urls="imageSrcs"></u-album>
+						<view class="textContent">
+							<u--text
+							        margin="0 0 8px 0"
+							        :text="articleContent"
+							></u--text>
+						</view>
                     </view>
                 </view>
             </view>
@@ -30,7 +35,6 @@
 </template>
 
 <script>
-	import {baseUrl} from '../../../untils/baseUrl.js'
 	import {getDate} from '../../../untils/getDate.js'
 	export default{
 		name:"albumImage",
@@ -38,8 +42,8 @@
 			return{
 				 albumWidth: 0,
 				userId:this.myUserId,
-				imageSrcs:[],
-				pictureTime:this.myPictureTime
+				articleContent:this.myArticleSrc,
+				articleTime:this.myArticleTime
 			}
 		},
 		props:{
@@ -47,48 +51,47 @@
 				type:String,
 				required:true
 			},
-			myImageSrcs:{
-				type:Array,
+			myArticleSrc:{
+				type:String,
 				required:true
 			},
-			myPictureTime:{
+			myArticleTime:{
 				type:String,
 				required:true
 			}
 		},
-		watch:{
-			// 获取到的只是图片的名字，没有加上路径，在这边加上路径
-			myImageSrcs:{
-				immediate:true,
-				deep:true,
-				handler(newValue){
-					this.updateImageSrcs()
-				}
-			}
-		},
+		// watch:{
+		// 	// 获取到的只是图片的名字，没有加上路径，在这边加上路径
+		// 	myVideoSrc:{
+		// 		immediate:true,
+		// 		deep:true,
+		// 		handler(newValue){
+		// 			this.videoSrc = baseUrl+'/static/videos/'+this.myVideoSrc;
+		// 		}
+		// 	}
+		// },
 		methods:{
-			updateImageSrcs() {
-				this.myImageSrcs.forEach(item=>{
-					this.imageSrcs.push(baseUrl+'/static/images/'+item);
-				})
-				this.imageSrcs = this.unique(this.imageSrcs)
-			},
+			// updateVideoSrc() {
+			// 	this.videoSrc.push(baseUrl+'/static/videos/'+this.myVideoSrc);
+			// 	this.videoSrc = this.unique(this.videoSrc)
+			// },
 			dateTime(ms){
-				return "拍摄于"+getDate(ms)
+				console.log(this.articleTime,'time')
+				return "发布于"+getDate(ms)
 			},
-			// 去重 防止页面刷新后，出现多次调用该组件，导致一张图片多次出现的bug
-			unique(arr) {
-			    const newArr = []
-			    const obj = {}
-			    arr.forEach(item => {
-			      if (!obj[item]) {
-			        newArr.push(item)
-			        obj[item] = true
-			      }
-			    })
+			// // 去重 防止页面刷新后，出现多次调用该组件，导致一张图片多次出现的bug
+			// unique(arr) {
+			//     const newArr = []
+			//     const obj = {}
+			//     arr.forEach(item => {
+			//       if (!obj[item]) {
+			//         newArr.push(item)
+			//         obj[item] = true
+			//       }
+			//     })
 			  
-			    return newArr
-			  }
+			//     return newArr
+			//   }
 
 		}
 
@@ -110,5 +113,12 @@
              margin-left: 10px;
              flex: 1;
          }
+		 .textContent{
+			 width: 450rpx;
+			 border-radius: 20rpx;
+			 padding: 20rpx;
+			 border: 4rpx solid gray;
+			 align-items: center;
+		 }
     }
 </style>
