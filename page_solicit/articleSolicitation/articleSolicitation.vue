@@ -61,7 +61,6 @@
 				this.albumData.sort((item1,item2)=>{
 					return item2["articleDate"] - item1['articleDate']
 				})
-				console.log(this.albumData,'111')
 			},
 			gotoUploadVideos(){
 				uni.navigateTo({

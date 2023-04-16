@@ -76,7 +76,6 @@
 			// 	this.videoSrc = this.unique(this.videoSrc)
 			// },
 			dateTime(ms){
-				console.log(this.articleTime,'time')
 				return "发布于"+getDate(ms)
 			},
 			// // 去重 防止页面刷新后，出现多次调用该组件，导致一张图片多次出现的bug

@@ -59,25 +59,24 @@
 					<span class='boxTitle'>文章征稿</span>
 				</a>
 			</li>
-			<!--
 			<li class='box'>
-				<a class="hrefBox" @click="aaa">
-					<img class="icon" src="../../static/image/fengjing2.png">
-					<span class='boxTitle'>景点介绍</span>
+				<a class="hrefBox">
+					<img class="icon" src="../../static/image/ruralTourism.png">
+					<span class='boxTitle'>乡村游</span>
 				</a>
 			</li>
 			<li class='box'>
-				<a class="hrefBox" @click="aaa">
-					<img class="icon" src="../../static/image/fengjing2.png">
-					<span class='boxTitle'>景点介绍</span>
+				<a class="hrefBox">
+					<img class="icon" src="../../static/image/campingTour.png">
+					<span class='boxTitle'>露营游</span>
 				</a>
 			</li>
 			<li class='box'>
-				<a class="hrefBox" @click="aaa">
-					<img class="icon" src="../../static/image/fengjing2.png">
-					<span class='boxTitle'>景点介绍</span>
+				<a class="hrefBox">
+					<img class="icon" src="../../static/image/researchTour.png">
+					<span class='boxTitle'>研学游</span>
 				</a>
-			</li> -->
+			</li>
 		</ul>
 	</view>
 </template>

@@ -19,7 +19,13 @@
 				required:true
 			},
 		},
-
+		// onShow() {
+		// 	this.videoContext = uni.createVideoContext('myVideo');
+		// 	this.videoContext.play()
+		// },
+		// onHide() {
+		// 			this.videoContext.pause()
+		// 	},
 	}
 </script>
 

@@ -29,8 +29,8 @@
 		   // this.distance = this.getMapDistance('104.04311','30.64242','104.060268','30.642047');
 			setTimeout(()=>{
 				this.distance = this.getMapDistance(this.scenicSpotPosition.longitude,this.scenicSpotPosition.latitude,this.longitude,this.latitude);
-				console.log('距离',this.distance);
-				console.log(this.longitude,this.latitude)
+				// console.log('距离',this.distance);
+				// console.log(this.longitude,this.latitude)
 			},5000)
 		},
 		methods: {
@@ -43,8 +43,8 @@
 						// 暂时
 						that.longitude = res.longitude; //118.787575;
 						that.latitude = res.latitude; //32.05024;
-						console.log("获取当前的用户经度", that.longitude);
-						console.log("获取当前的用户纬度", that.latitude);
+						// console.log("获取当前的用户经度", that.longitude);
+						// console.log("获取当前的用户纬度", that.latitude);
 						var long = 0;
 						var lat = 0;
 						//小数点保留六位  经度
@@ -62,7 +62,7 @@
 						}
 						// cookie.set("longitude", long);
 						// cookie.set("latitude", lat);
-						console.log("纬度", lat);
+						// console.log("纬度", lat);
 						// this.distance(that.latitude,that.longitude);
 						that.markers = [{
 							id: "",

@@ -12,6 +12,24 @@
 				size='large'
 				@click="goToMyReserve"
 			></u-cell>
+			<u-cell
+			    title="我的文章"
+			    :isLink='true'
+				size='large'
+				@click="goToMyArticles"
+			></u-cell>
+			<u-cell
+			    title="我的图片"
+			    :isLink='true'
+				size='large'
+				@click="goToMyImages"
+			></u-cell>
+			<u-cell
+			    title="我的短视频"
+			    :isLink='true'
+				size='large'
+				@click="goToMyShortVideos"
+			></u-cell>
 		</u-cell-group>
 		</view>
 		<button class="exitBtn" v-if="userIsLoading" @click="exit">退出登录</button>
@@ -39,6 +57,21 @@
 			goToMyReserve(){
 				uni.navigateTo({
 					url:"/pages/user/myReserve/myReserve"
+				})
+			},
+			goToMyArticles(){
+				uni.navigateTo({
+					url:"/pages/user/myArticles/myArticles"
+				})
+			},
+			goToMyImages(){
+				uni.navigateTo({
+					url:"/pages/user/myImages/myImages"
+				})
+			},
+			goToMyShortVideos(){
+				uni.navigateTo({
+					url:"/pages/user/myShortVideos/myShortVideos"
 				})
 			}
 		}

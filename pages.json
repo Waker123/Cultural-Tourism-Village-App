@@ -6,6 +6,7 @@
 		// {
 		// 	"path": "pages/test"
 		// },
+
 		{
 			"path": "pages/index/index"//"pages/index/index",
 		},
@@ -21,24 +22,18 @@
 		{
 			"path": "pages/mask/mask"
 		},
-		// {
-		// 	"path": "pages/main/introduce/introduce"
-		// },
-		// {
-		// 	"path": "pages/main/homestay/homestay"
-		// },
-		// {
-		// 	"path": "pages/main/speciality/speciality"
-		// },
 		{
 			"path": "pages/user/myReserve/myReserve"
+		},
+		{
+			"path": "pages/user/myArticles/myArticles"
+		},
+		{
+			"path": "pages/user/myImages/myImages"
+		},
+		{
+			"path": "pages/user/myShortVideos/myShortVideos"
 		}
-		// {
-		// 	"path": "pages/main/scenery/scenery"
-		// },
-		// {
-		// 	"path": "pages/main/video/video"
-		// }
 	],
 	"subpackages": [
 	  {
