@@ -41,7 +41,7 @@
 		},
 		computed:{
 			...mapState('changeScenicSpot',['currentScenicSpot']),
-			...mapState('userData',['userIsLoadingId','userImages']),
+			...mapState('userData',['userIsLoadingId','userImages',"userIsLoading"]),
 		},
 		watch:{
 			successfulImages(newValue){
@@ -220,6 +220,11 @@
 						...params,
 				})
 			},
+			getToLogin(){
+				uni.navigateTo({
+					url:"/pages/login/login"
+				})
+			}
 		}
 	}
 </script>

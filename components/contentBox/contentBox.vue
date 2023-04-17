@@ -59,20 +59,20 @@
 					<span class='boxTitle'>文章征稿</span>
 				</a>
 			</li>
-			<li class='box'>
+			<li class='box' @tap="$u.throttle(scenicSpotCountryTour, 500)">
 				<a class="hrefBox">
 					<img class="icon" src="../../static/image/ruralTourism.png">
 					<span class='boxTitle'>乡村游</span>
 				</a>
 			</li>
 			<li class='box'>
-				<a class="hrefBox">
+				<a class="hrefBox" @tap="$u.throttle(scenicSpotCampingTour, 500)">
 					<img class="icon" src="../../static/image/campingTour.png">
 					<span class='boxTitle'>露营游</span>
 				</a>
 			</li>
 			<li class='box'>
-				<a class="hrefBox">
+				<a class="hrefBox" @tap="$u.throttle(scenicSpotResearchTour, 500)">
 					<img class="icon" src="../../static/image/researchTour.png">
 					<span class='boxTitle'>研学游</span>
 				</a>
@@ -131,6 +131,21 @@
 			scenicSpotArticleSolicitation(){
 				uni.navigateTo({
 					url:"/page_solicit/articleSolicitation/articleSolicitation"
+				})
+			},
+			scenicSpotCountryTour(){
+				uni.navigateTo({
+					url:"/page_tour/countryTour/countryTour"
+				})
+			},
+			scenicSpotCampingTour(){
+				uni.navigateTo({
+					url:"/page_tour/campingTour/campingTour"
+				})
+			},
+			scenicSpotResearchTour(){
+				uni.navigateTo({
+					url:"/page_tour/researchTour/researchTour"
 				})
 			}
 		}

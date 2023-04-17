@@ -3,10 +3,6 @@
 			"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
 		},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		// {
-		// 	"path": "pages/test"
-		// },
-
 		{
 			"path": "pages/index/index"//"pages/index/index",
 		},
@@ -78,6 +74,29 @@
 				  "path":"articleSolicitation/uploadArticles"
 			  }
 		  ]
+	  },
+	  {
+	  		  "root":"page_tour",
+	  		  "pages":[
+	  			  {
+	  				  "path":"campingTour/campingTour"
+	  			  },
+	  			  {
+	  				  "path":"countryTour/countryTour"
+	  			  },
+	  			  {
+	  				  "path":"researchTour/researchTour"
+	  			  },
+				  {
+					  "path":"campingTour/campingTourContent"
+				  },
+				  {
+					  "path":"countryTour/countryTourContent"
+				  },
+				  {
+					  "path":"researchTour/researchTourContent"
+				  }
+	  		  ]
 	  }
 	],
 	  // {

@@ -11,6 +11,12 @@
 			</view>
 			<p v-show="uploadSuccessful" class="uploadSuccess">上传成功！即将返回</p>
 			<u-toast ref="uToast"></u-toast>
+			<u-popup :show="!userIsLoading" mode="center">
+				<view class="popBox" v-if="!userIsLoading">
+					<span>请先登录</span>
+					<button size="mini" @click="getToLogin">去登录</button>
+				</view>
+			</u-popup>			
 		</view>
 </template>
 
@@ -39,7 +45,7 @@
 		},
 		computed:{
 			...mapState('changeScenicSpot',['currentScenicSpot']),
-			...mapState('userData',['userIsLoadingId','userVideos']),
+			...mapState('userData',['userIsLoadingId','userVideos','userIsLoading']),
 		},
 		// watch:{
 		// 	successfulImages(newValue){
@@ -157,6 +163,11 @@
 						...params,
 				})
 			},
+			getToLogin(){
+				uni.navigateTo({
+					url:"/pages/login/login"
+				})
+			}
 		}
 	}
 </script>

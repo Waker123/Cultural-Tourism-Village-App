@@ -5,6 +5,12 @@
 			<button class="btn" @click="uploadArticle">发表</button>
 			<!-- <p v-show="uploadSuccessful" class="uploadSuccess">发表成功！即将返回</p> -->
 			<u-toast ref="uToast"></u-toast>
+			<u-popup :show="!userIsLoading" mode="center">
+				<view class="popBox" v-if="!userIsLoading">
+					<span>请先登录</span>
+					<button size="mini" @click="getToLogin">去登录</button>
+				</view>
+			</u-popup>			
 		</view>
 </template>
 
@@ -20,7 +26,7 @@
 		},
 		computed:{
 			...mapState('changeScenicSpot',['currentScenicSpot']),
-			...mapState('userData',['userIsLoadingId','userArticles']),
+			...mapState('userData',['userIsLoadingId','userArticles','userIsLoading']),
 		},
 
 		methods:{
@@ -55,6 +61,11 @@
 						...params,
 				})
 			},
+			getToLogin(){
+				uni.navigateTo({
+					url:"/pages/login/login"
+				})
+			}
 		}
 	}
 </script>

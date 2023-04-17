@@ -11,10 +11,8 @@ export default {
 			 getScenicSpotData({
 				 currentScenicSpot:value
 				 }).then((res) => {
-					 console.log(res.data,'数据');
-					 context.commit('changeScenicSpotData',res.data);
-					 
-			  uni.hideLoading(); // 关闭加载中弹框
+					context.commit('changeScenicSpotData',res.data);
+					uni.hideLoading(); // 关闭加载中弹框
 			}).catch((err) => {
 			  console.log(err); 
 			});
@@ -35,6 +33,9 @@ export default {
 			state.scenicSpotScenery = value.scenery;
 			state.scenicSpotVideos = value.videos;
 			state.scenicSpotPosition = value.position;
+			state.scenicSpotCampingTour = value.campingTour;
+			state.scenicSpotCountryTour = value.countryTour;
+			state.scenicSpotResearchTour = value.researchTour;
 		},
 	},
 	state:{
@@ -45,6 +46,9 @@ export default {
 		scenicSpotSpeciality:[],
 		scenicSpotScenery:[],
 		scenicSpotVideos:[],
-		scenicSpotPosition:{}
+		scenicSpotPosition:{},
+		scenicSpotCampingTour:[],
+		scenicSpotCountryTour:[],
+		scenicSpotResearchTour:[]
 	}
 }
