@@ -30,6 +30,12 @@
 				size='large'
 				@click="goToMyShortVideos"
 			></u-cell>
+			<u-cell
+			    title="活动预约"
+			    :isLink='true'
+				size='large'
+				@click="goToMyActivity"
+			></u-cell>
 		</u-cell-group>
 		</view>
 		<button class="exitBtn" v-if="userIsLoading" @click="exit">退出登录</button>
@@ -73,6 +79,11 @@
 				uni.navigateTo({
 					url:"/pages/user/myShortVideos/myShortVideos"
 				})
+			},
+			goToMyActivity(){
+				uni.navigateTo({
+					url:"/pages/user/activity/activity"
+				})
 			}
 		}
 	}
@@ -82,14 +93,14 @@
 	.mainUserCard{
 		position: relative;
 		width: 700rpx;
-		height: 600rpx;
+		height: 700rpx;
 		background-color: rgba(255, 255, 255, .8);
 		border-radius: 50rpx;
 		box-shadow: 10rpx 10rpx 10rpx 10rpx rgba(0, 0, 0, .2);
 		overflow: hidden;
 		.exitBtn{
 			position: absolute;
-			top: 85%;
+			top: 87%;
 			width: 100%;
 			font-size: 40rpx;
 			font-weight: 700;

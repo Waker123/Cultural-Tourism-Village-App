@@ -1,8 +1,8 @@
 <template>
-	<view class="countryTour">
+	<view class="researchTour">
 		<scroll-view  v-show="true"  scroll-y="true" class="scroll-Y" >
-			<view class="card" v-for="(item,index) in scenicSpotCountryTour" :key="item.id" @tap="goToCountryContent(item)">
-				<span class='countryCount'>研学游记{{item.id}}:</span>
+			<view class="card" v-for="(item,index) in scenicSpotResearchTour" :key="item.id" @tap="goToResearchContent(item)">
+				<span class='researchCount'>研学游记{{item.id}}:</span>
 				<br>
 				<p class="title">{{item.title}}</p>
 			</view>
@@ -26,7 +26,7 @@
 			}
 		},
 		computed:{
-			...mapState('changeScenicSpot',['currentScenicSpot','scenicSpotCountryTour'])
+			...mapState('changeScenicSpot',['currentScenicSpot','scenicSpotResearchTour'])
 		},
 		methods:{
 			getToIndex(){
@@ -34,9 +34,9 @@
 					url:"/pages/index/index"
 				})
 			},
-			goToCountryContent(item){
+			goToResearchContent(item){
 				uni.navigateTo({
-					url:`./countryTourContent?title=${item.title}&content=${item.content}`
+					url:`./researchTourContent?title=${item.title}&content=${item.content}`
 				})
 			}
 		}
@@ -44,7 +44,7 @@
 </script>
 
 <style lang="scss" scoped>
-	.countryTour{
+	.researchTour{
 		width: 750rpx;
 		height: 1200rpx;
 		 background-image: linear-gradient(to bottom right, #ebbba7 0%, #cfc7f8 100%);
@@ -64,7 +64,7 @@
 		 		margin: 50rpx;
 				padding: 50rpx;
 				overflow: hidden;//清除浮动
-		 		.countryCount{
+		 		.researchCount{
 					font-weight: 700;
 					font-size: 40rpx;
 				}

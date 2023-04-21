@@ -36,6 +36,7 @@ export default {
 			state.scenicSpotCampingTour = value.campingTour;
 			state.scenicSpotCountryTour = value.countryTour;
 			state.scenicSpotResearchTour = value.researchTour;
+			state.scenicSpotActivity = value.activity;
 		},
 	},
 	state:{
@@ -49,6 +50,7 @@ export default {
 		scenicSpotPosition:{},
 		scenicSpotCampingTour:[],
 		scenicSpotCountryTour:[],
-		scenicSpotResearchTour:[]
+		scenicSpotResearchTour:[],
+		scenicSpotActivity:[]
 	}
 }

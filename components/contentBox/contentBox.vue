@@ -50,7 +50,7 @@
 			<li class='box'>
 				<a class="hrefBox" @tap="$u.throttle(scenicSpotShortVideosSolicitation, 500)">
 					<img class="icon" src="../../static/image/shortVideo.png">
-					<span class='boxTitle'>短视频征稿</span>
+					<span class='boxTitle'>视频征稿</span>
 				</a>
 			</li>
 			<li class='box'>
@@ -75,6 +75,24 @@
 				<a class="hrefBox" @tap="$u.throttle(scenicSpotResearchTour, 500)">
 					<img class="icon" src="../../static/image/researchTour.png">
 					<span class='boxTitle'>研学游</span>
+				</a>
+			</li>
+			<li class='box'>
+				<a class="hrefBox" @tap="$u.throttle(scenicSpotLiveStreaming, 500)">
+					<img class="icon" src="../../static/image/live.png">
+					<span class='boxTitle'>活动直播</span>
+				</a>
+			</li>
+			<li class='box'>
+				<a class="hrefBox" @tap="$u.throttle(scenicSpotCulturalResources, 500)">
+					<img class="icon" src="../../static/image/culturalResources.png">
+					<span class='boxTitle'>文化资源</span>
+				</a>
+			</li>
+			<li class='box'>
+				<a class="hrefBox" @tap="$u.throttle(scenicSpotEventAppointment, 500)">
+					<img class="icon" src="../../static/image/activity.png">
+					<span class='boxTitle'>预约活动</span>
 				</a>
 			</li>
 		</ul>
@@ -147,6 +165,21 @@
 				uni.navigateTo({
 					url:"/page_tour/researchTour/researchTour"
 				})
+			},
+			scenicSpotLiveStreaming(){
+				uni.navigateTo({
+					url:"/page_activity/liveStreaming/liveStreaming"
+				})
+			},
+			scenicSpotCulturalResources(){
+				uni.navigateTo({
+					url:"/page_activity/culturalResources/culturalResources"
+				})
+			},
+			scenicSpotEventAppointment(){
+				uni.navigateTo({
+					url:"/page_activity/eventAppointment/eventAppointment"
+				})
 			}
 		}
 		
@@ -165,12 +198,14 @@
 		ul{
 			padding: 10rpx;
 			.box{
+				width: 120rpx;
+				height: 120rpx;
 				display: inline-block;
 				margin: 20rpx;
 				// border: 2rpx solid grey;
 				box-shadow: 3rpx 3rpx 3rpx 3rpx rgba(0, 0, 0, .2);
 				border-radius: 15rpx;
-				padding: 20rpx;
+				padding: 15rpx;
 				.hrefBox{
 					display: flex;
 					flex-direction: column;

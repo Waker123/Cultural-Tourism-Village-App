@@ -27,7 +27,7 @@
 		height: 100vh;
 		/* #endif */
 		/* #ifdef MP-WEIXIN */
-		height: 120vh;
+		height: 140vh;
 		/* #endif */
 		background-image: linear-gradient(to bottom left, #fa709a 0%, #fee140 100%);
 		z-index: -1;
