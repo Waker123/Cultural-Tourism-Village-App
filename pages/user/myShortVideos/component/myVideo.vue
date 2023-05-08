@@ -31,8 +31,8 @@
 
 <style lang="scss" scoped>
 	.myVideo{
-		width: 600rpx;
-		height: 450rpx;
+		width: 400rpx;
+		height: 250rpx;
 		.video{
 			width: 100%;
 			height: 100%;

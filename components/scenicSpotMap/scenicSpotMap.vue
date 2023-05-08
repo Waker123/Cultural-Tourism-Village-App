@@ -10,7 +10,6 @@
 		name:'scenicSpotMap',
 		data() {
 			return {
-				title: '四川大学华西医院',
 				distance: 0, //"距离"
 				latitude: 39.909, // 默认定在首都
 				longitude: 116.39742,
@@ -41,10 +40,8 @@
 					type: "gcj02",
 					success: function(res) {
 						// 暂时
-						that.longitude = res.longitude; //118.787575;
-						that.latitude = res.latitude; //32.05024;
-						// console.log("获取当前的用户经度", that.longitude);
-						// console.log("获取当前的用户纬度", that.latitude);
+						that.longitude = res.longitude; 
+						that.latitude = res.latitude; 
 						var long = 0;
 						var lat = 0;
 						//小数点保留六位  经度
@@ -60,10 +57,6 @@
 								lat = parseFloat(longlatsplit1[0] === "" ? 0 : longlatsplit1[0]) + parseFloat("." + longlatsplit1[1].slice(0,6));
 							}
 						}
-						// cookie.set("longitude", long);
-						// cookie.set("latitude", lat);
-						// console.log("纬度", lat);
-						// this.distance(that.latitude,that.longitude);
 						that.markers = [{
 							id: "",
 							latitude: res.latitude,

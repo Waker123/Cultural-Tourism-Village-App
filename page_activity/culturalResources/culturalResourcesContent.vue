@@ -1,5 +1,5 @@
 <template>
-	<view class="campingMain">
+	<view class="culturalMain">
 		<scroll-view  scroll-y="true" class="scroll-Y" >
 				<view class="card">
 					<span class='title'>{{title}}</span>
@@ -20,7 +20,7 @@
 <script>
 	import {mapState} from 'vuex'
 	export default{
-		name:'campingTourContent',
+		name:'culturalTourContent',
 		data(){
 			return{
 				title:'',
@@ -45,7 +45,7 @@
 </script>
 
 <style lang="scss" scoped>
-	.campingMain{
+	.culturalMain{
 		width: 750rpx;
 		height: 1200rpx;
 		background-image: linear-gradient(to bottom right, #ebbba7 0%, #cfc7f8 100%);

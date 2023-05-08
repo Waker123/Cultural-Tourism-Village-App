@@ -4,7 +4,7 @@
 			<view class="card"  v-for="(item, index1) in scenicSpot" :key="index1"  v-show="getShow(item)">
 				<p class='scenicSpot'>{{item}}</p>
 				<view class="videosMain"  v-show="myVideos[item].length !== 0">
-					<p  class="videos">发布的照片</p>
+					<p  class="videos">发布的视频</p>
 					<view class="videosBox" v-for="(item2,index2) in myVideos[item]" :key="item2.videoDate">
 						<span class='delete' @click="DeleteVideos(index2)">X</span>
 						<my-video class="videosContent" :src="getUrl(item2.videoSrc)"></my-video>

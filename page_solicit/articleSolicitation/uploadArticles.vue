@@ -1,5 +1,4 @@
 <template>
-		<!-- 实拍视频 -->
 		<view class="uploadMain">
 			<u--textarea v-model="articleContent" placeholder="请输入内容" count autoHeight maxlength='1000'></u--textarea>
 			<button class="btn" @click="uploadArticle">发表</button>
@@ -31,7 +30,7 @@
 
 		methods:{
 
-			storeVideos(){
+			storeArticles(){
 				let list = this.userArticles;
 				let ms = +new Date();
 				list.push({
@@ -42,7 +41,7 @@
 				this.$store.commit('userData/changeUserState',[this.userIsLoadingId,'articles',list])
 			},
 			uploadArticle(){
-				this.storeVideos();
+				this.storeArticles();
 				this.showToast({
 							type: 'success',
 							title: '发表成功',

@@ -1,6 +1,5 @@
 <template>
 	<view class="choosePot">
-		<!-- 见uview选择器 https://www.uviewui.com/components/picker.html -->
 		<u-picker :show="scenicSpotShow" :columns="[scenicSpot]" title="请选择景点" @confirm="changeScenicSpot" @cancel ="show=false"></u-picker>
 	</view>
 </template>
@@ -38,7 +37,6 @@
 				  console.log(err); 
 				});
 			},
-			
 		},
 		created() {
 			this.getScenicName();
